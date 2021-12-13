@@ -8,7 +8,7 @@
     "build:dev": "npm run build -- --watch --mode=development",
     "seed": "node script/seed.js",
     "start": "node server",
-    "start:dev": "npm run build:dev & npm run start-server",
+    "start:dev": "npm run build:dev & npm run start-server & npx tailwindcss -i ./client/style.css -o ./public/output.css --watch",
     "start:dev:logger": "LOGGING=true npm run start:dev",
     "start:dev:seed": "SEED=true npm run start:dev",
     "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
@@ -20,6 +20,8 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.5",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "compression": "^1.7.3",
@@ -54,6 +56,7 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "supertest": "^4.0.2",
+    "tailwindcss": "^3.0.2",
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
   }
