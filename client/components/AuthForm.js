@@ -48,6 +48,46 @@ const AuthForm = (props) => {
                 </div>
               </div>
 
+              {displayName === 'Sign up' && (
+                <>
+                  <div>
+                    <label
+                      htmlFor='firstName'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      First Name
+                    </label>
+                    <div className='mt-1'>
+                      <input
+                        name='firstName'
+                        type='text'
+                        placeholder='First name'
+                        required
+                        className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor='lastName'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      Last Name
+                    </label>
+                    <div className='mt-1'>
+                      <input
+                        name='lastName'
+                        type='text'
+                        placeholder='Last name'
+                        required
+                        className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
               <div>
                 <label
                   htmlFor='password'
@@ -118,7 +158,16 @@ const mapDispatch = (dispatch) => {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
-      dispatch(authenticate(username, password, formName));
+
+      if (formName === 'login') {
+        const firstName = evt.target.username.value;
+        const lastName = evt.target.username.value;
+        dispatch(
+          authenticate(username, firstName, lastName, password, formName)
+        );
+      } else {
+        dispatch(authenticate(username, password, formName));
+      }
     },
   };
 };
