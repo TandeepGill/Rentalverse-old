@@ -30,13 +30,6 @@ const Property = db.define('property', {
       notEmpty: true,
     },
   },
-  description: {
-    type: Sequelize.TEXT,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    },
-  },
   imageURL: {
     type: Sequelize.STRING,
     allowNull: false,
