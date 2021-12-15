@@ -9,7 +9,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
     <div className='flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10'>
       <Link to='/home'>
         <div>
-          <h1 className='text-xl tracking-wider font-semibold text-orange-600'>
+          <h1 className='text-xl tracking-wider font-bold text-orange-600'>
             RENTAL<span className='font-normal text-slate-700'>VERSE</span>
           </h1>
         </div>
