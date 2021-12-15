@@ -71,7 +71,7 @@ const Footer = () => {
         <div className='mt-8 md:mt-0 md:order-1'>
           <p className='text-center text-base text-gray-400'>
             &copy; 2021{' '}
-            <span className='tracking-wider font-semibold text-orange-600'>
+            <span className='tracking-wider font-bold text-orange-600'>
               RENTAL<span className='font-normal text-slate-700'>VERSE</span>
             </span>
             , Inc. All rights reserved.

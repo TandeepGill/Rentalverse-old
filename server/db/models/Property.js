@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const Property = db.define('video', {
+const Property = db.define('property', {
   address: {
     type: Sequelize.STRING,
     allowNull: false,
