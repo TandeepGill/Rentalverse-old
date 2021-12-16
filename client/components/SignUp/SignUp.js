@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authenticate } from '../../store';
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
       username: '',
+      firstName: '',
+      lastName: '',
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +29,7 @@ class SignIn extends React.Component {
     const name = event.target.name;
     const username = event.target.username.value;
     const password = event.target.password.value;
-    this.props.handleSignIn(username, password, name);
+    this.props.handleSignUp(username, password, name);
   }
 
   render() {
@@ -38,15 +40,15 @@ class SignIn extends React.Component {
         <div className='min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
           <div className='sm:mx-auto sm:w-full sm:max-w-md'>
             <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-700'>
-              Sign in to your account
+              Sign up for a free account
             </h2>
             <p className='mt-2 text-center text-sm text-gray-600'>
-              Or if you don't have an account{' '}
+              Or if you already have an account{' '}
               <Link
-                to='/signup'
+                to='/signin'
                 className='font-medium text-orange-600 hover:text-orange-700'
               >
-                Sign up
+                Sign in
               </Link>
             </p>
           </div>
@@ -113,20 +115,20 @@ class SignIn extends React.Component {
   }
 }
 
-const mapSignIn = (state) => {
+const mapSignUp = (state) => {
   return {
-    name: 'signin',
-    displayName: 'Sign in',
+    name: 'signup',
+    displayName: 'Sign up',
     error: state.auth.error,
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSignIn: (username, password, name) => {
+    handleSignUp: (username, password, name) => {
       dispatch(authenticate(username, password, name));
     },
   };
 };
 
-export default connect(mapSignIn, mapDispatch)(SignIn);
+export default connect(mapSignUp, mapDispatch)(SignUp);

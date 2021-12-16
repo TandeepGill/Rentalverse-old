@@ -2,9 +2,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout } from '../store';
+import { logout } from '../../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, user }) => (
   <div className='relative bg-orange-50'>
     <div className='flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10'>
       <Link to='/home'>
@@ -30,8 +30,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
               className='text-base font-medium hover:text-orange-600'
             >
               <img
-                className='h-9 w-9 rounded-full'
-                src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                className='h-10 w-10 rounded-full'
+                src={user.imageURL}
                 alt=''
               />
             </Link>
@@ -73,6 +73,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
+    user: state.auth,
   };
 };
 
