@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import SignIn from './components/SignIn/SignIn';
-import Home from './components/Home';
+import SignUp from './components/SignUp/SignUp';
+import Home from './components/Home/Home';
 import { me } from './store';
 
 /**
@@ -27,7 +28,7 @@ class Routes extends Component {
           <Switch>
             <Route path='/' exact component={SignIn} />
             <Route path='/signin' component={SignIn} />
-            {/* <Route path='/signup' component={Signup} /> */}
+            <Route path='/signup' component={SignUp} />
           </Switch>
         )}
       </div>
