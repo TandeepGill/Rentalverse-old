@@ -24,7 +24,7 @@ const Property = db.define('property', {
     },
   },
   sqft: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
