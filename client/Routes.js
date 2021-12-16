@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { Signin, Signup } from './components/AuthForm';
+import SignIn from './components/SignIn/SignIn';
 import Home from './components/Home';
 import { me } from './store';
 
@@ -25,9 +25,9 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={Signin} />
-            <Route path='/signin' component={Signin} />
-            <Route path='/signup' component={Signup} />
+            <Route path='/' exact component={SignIn} />
+            <Route path='/signin' component={SignIn} />
+            {/* <Route path='/signup' component={Signup} /> */}
           </Switch>
         )}
       </div>
