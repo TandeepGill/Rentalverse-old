@@ -137,7 +137,7 @@ const AuthForm = (props) => {
  */
 const mapLogin = (state) => {
   return {
-    name: 'login',
+    name: 'signin',
     displayName: 'Sign in',
     error: state.auth.error,
   };
@@ -159,11 +159,11 @@ const mapDispatch = (dispatch) => {
       const username = evt.target.username.value;
       const password = evt.target.password.value;
 
-      if (formName === 'login') {
+      if (formName === 'signup') {
         const firstName = evt.target.username.value;
         const lastName = evt.target.username.value;
         dispatch(
-          authenticate(username, firstName, lastName, password, formName)
+          authenticate(username, password, formName, firstName, lastName)
         );
       } else {
         dispatch(authenticate(username, password, formName));
