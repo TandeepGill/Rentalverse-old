@@ -15,6 +15,17 @@ class SingleProperty extends React.Component {
       console.error(error);
     }
   }
+
+  render() {
+    const property = this.props.property || {};
+    return (
+      <div className='bg-gray-50'>
+        <div className='max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+          <h1>Property {property.id}</h1>
+          <h3>{property.type}</h3>
+          <h4>{property.address}</h4>
+          <h4>Bedrooms: {property.bedroom}</h4>
+          <h4>Bedrooms: {property.bathroom}</h4>
         </div>
       </div>
     );
