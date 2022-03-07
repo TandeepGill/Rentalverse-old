@@ -18,6 +18,16 @@ class SingleProperty extends React.Component {
 
   render() {
     const property = this.props.property || {};
+
+    const sqftFormat = (sqft) => {
+      if (sqft.length < 4) {
+        return sqft;
+      } else {
+        let firstNum = sqft[0];
+        return `${firstNum},${sqft.slice(1)}`;
+      }
+    };
+
     return (
       <div className='bg-gray-50'>
         <div className='max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
@@ -26,6 +36,7 @@ class SingleProperty extends React.Component {
           <h4>{property.address}</h4>
           <h4>Bedrooms: {property.bedroom}</h4>
           <h4>Bedrooms: {property.bathroom}</h4>
+          <h4>Sqft: {sqftFormat(property.sqft)}</h4>
         </div>
       </div>
     );
