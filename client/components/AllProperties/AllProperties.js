@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { fetchAllProperties } from '../../store/allProperties/allProperties';
 
-import { MailIcon, PhoneIcon } from '@heroicons/react/solid';
-
 class AllProperties extends React.Component {
   componentDidMount() {
     try {
@@ -37,24 +35,28 @@ class AllProperties extends React.Component {
                 key={property.id}
                 className='col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200'
               >
-                <div className='flex-1 flex flex-col p-8'>
-                  <img
-                    className='w-38 h-38 flex-shrink-0 mx-auto rounded-md'
-                    src={property.imageURL}
-                    alt=''
-                  />
-                  <h3 className='mt-6 text-gray-900 text-base font-medium'>
-                    {property.address}
-                  </h3>
-                  <dl className='mt-1 flex-grow flex flex-col justify-between'>
-                    <dd className='text-gray-500 text-base'>{property.type}</dd>
-                    <dd className='mt-3'>
-                      <span className='px-2 py-1 text-orange-600 text-base font-medium bg-orange-50 rounded-md'>
-                        {sqftFormat(property.sqft)} sqft
-                      </span>
-                    </dd>
-                  </dl>
-                </div>
+                <Link to={`/properties/${property.id}`}>
+                  <div className='flex-1 flex flex-col p-8'>
+                    <img
+                      className='w-38 h-38 flex-shrink-0 mx-auto rounded-md'
+                      src={property.imageURL}
+                      alt=''
+                    />
+                    <h3 className='mt-6 text-gray-900 text-base font-medium'>
+                      {property.address}
+                    </h3>
+                    <dl className='mt-1 flex-grow flex flex-col justify-between'>
+                      <dd className='text-gray-500 text-base'>
+                        {property.type}
+                      </dd>
+                      <dd className='mt-3'>
+                        <span className='px-2 py-1 text-orange-600 text-base font-medium bg-orange-50 rounded-md'>
+                          {sqftFormat(property.sqft)} sqft
+                        </span>
+                      </dd>
+                    </dl>
+                  </div>
+                </Link>
                 <div>
                   <div className='-mt-px flex divide-x divide-gray-200'>
                     <div className='w-0 flex-1 flex'>

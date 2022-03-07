@@ -1,18 +1,14 @@
 const router = require('express').Router();
 const {
   models: { Property },
-} = require('../db');
+} = require('../db/index.js');
 module.exports = router;
 
 // GET /api/properties
-router.get('/:userId', async (req, res, next) => {
+router.get('/:propertyId', async (req, res, next) => {
   try {
-    const properties = await Property.findAll({
-      where: {
-        userId: req.params.userId,
-      },
-    });
-    res.json(properties);
+    const property = await Property.findByPk(req.params.propertyId);
+    res.json(property);
   } catch (err) {
     next(err);
   }
