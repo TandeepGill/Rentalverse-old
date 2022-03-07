@@ -5,6 +5,8 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import Home from './components/Home/Home';
 import AllProperties from './components/AllProperties/AllProperties';
+import SingleProperty from './components/SingleProperty/SingleProperty';
+
 import { me } from './store';
 
 /**
@@ -23,7 +25,12 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             {/* <Route path='/home' component={Home} /> */}
-            <Route path='/properties' component={AllProperties} />
+            <Route exact path='/properties' component={AllProperties} />
+            <Route
+              exact
+              path='/properties/:propertyId'
+              component={SingleProperty}
+            />
             <Redirect to='/properties' />
           </Switch>
         ) : (
