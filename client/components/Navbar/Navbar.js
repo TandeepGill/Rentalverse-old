@@ -18,17 +18,17 @@ const Navbar = ({ handleClick, isLoggedIn, user }) => (
         <div className='md:flex-1 md:flex md:items-center md:justify-between'>
           <div as='nav' className='flex space-x-10'>
             <Link
-              to={'/properties'}
+              to='/properties'
               className='text-base font-medium hover:text-orange-600'
             >
               Properties
             </Link>
-            <a
-              href='/tenants'
+            <Link
+              to='/tenants'
               className='text-base font-medium hover:text-orange-600'
             >
               Tenants
-            </a>
+            </Link>
           </div>
           <div className='flex items-center md:ml-12'>
             <Link
