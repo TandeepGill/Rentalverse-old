@@ -33,7 +33,7 @@ class AllProperties extends React.Component {
             properties.map((property) => (
               <li
                 key={property.id}
-                className='col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200'
+                className='col-span-1 flex flex-col text-center bg-white rounded-lg shadow shadow-orange-200 divide-y divide-orange-200'
               >
                 <Link to={`/properties/${property.id}`}>
                   <div className='flex-1 flex flex-col p-8'>
@@ -58,7 +58,7 @@ class AllProperties extends React.Component {
                   </div>
                 </Link>
                 <div>
-                  <div className='-mt-px flex divide-x divide-gray-200'>
+                  <div className='-mt-px flex divide-x divide-orange-200'>
                     <div className='w-0 flex-1 flex'>
                       <h3 className='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-base text-orange-600 font-medium border border-transparent rounded-br-lg hover:text-orange-700'>
                         Bedrooms: {property.bedroom}
