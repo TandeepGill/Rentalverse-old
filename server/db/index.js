@@ -15,6 +15,8 @@ Property.belongsTo(User);
 Property.hasOne(Lease);
 Lease.belongsTo(Property);
 
+User.hasMany(Lease);
+
 module.exports = {
   db,
   models: {

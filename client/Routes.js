@@ -8,6 +8,7 @@ import AllProperties from './components/AllProperties/AllProperties';
 import SingleProperty from './components/SingleProperty/SingleProperty';
 
 import { me } from './store';
+import AllTenants from './components/AllTenants/AllTenants';
 
 /**
  * COMPONENT
@@ -31,6 +32,7 @@ class Routes extends Component {
               path='/properties/:propertyId'
               component={SingleProperty}
             />
+            <Route exact path='/tenants' component={AllTenants} />
             <Redirect to='/properties' />
           </Switch>
         ) : (

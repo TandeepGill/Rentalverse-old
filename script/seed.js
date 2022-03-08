@@ -210,6 +210,7 @@ async function seed() {
       endDate: '2022-03-22',
       price: '3500',
       propertyId: 1,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Julianna',
@@ -218,6 +219,7 @@ async function seed() {
       endDate: '2022-05-14',
       price: '1800',
       propertyId: 2,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Kaitlynn',
@@ -226,6 +228,7 @@ async function seed() {
       endDate: '2022-10-03',
       price: '2100',
       propertyId: 3,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Kash',
@@ -234,6 +237,7 @@ async function seed() {
       endDate: '2022-07-11',
       price: '4500',
       propertyId: 4,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Skye',
@@ -242,6 +246,7 @@ async function seed() {
       endDate: '2022-02-05',
       price: '2800',
       propertyId: 5,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Payton',
@@ -250,6 +255,7 @@ async function seed() {
       endDate: '2022-08-16',
       price: '3200',
       propertyId: 6,
+      userId: 6,
     }),
     Lease.create({
       firstName: 'Ashton',
@@ -258,6 +264,7 @@ async function seed() {
       endDate: '2022-06-20',
       price: '1500',
       propertyId: 7,
+      userId: 7,
     }),
     Lease.create({
       firstName: 'Jacqueline',
@@ -266,6 +273,7 @@ async function seed() {
       endDate: '2022-07-06',
       price: '2300',
       propertyId: 8,
+      userId: 8,
     }),
     Lease.create({
       firstName: 'Jack',
@@ -274,6 +282,7 @@ async function seed() {
       endDate: '2022-04-26',
       price: '1700',
       propertyId: 9,
+      userId: 9,
     }),
     Lease.create({
       firstName: 'Thomas',
@@ -282,6 +291,7 @@ async function seed() {
       endDate: '2022-06-24',
       price: '2800',
       propertyId: 10,
+      userId: 10,
     }),
   ]);
 
