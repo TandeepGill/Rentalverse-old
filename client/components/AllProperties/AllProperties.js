@@ -23,7 +23,7 @@ class AllProperties extends React.Component {
       }
     };
     return (
-      <div className='mx-28 my-6 place-content-center'>
+      <div className='mx-28 my-6 place-content-center min-h-screen'>
         <ul
           role='list'
           className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'

@@ -23,7 +23,10 @@ const Navbar = ({ handleClick, isLoggedIn, user }) => (
             >
               Properties
             </Link>
-            <a href='#' className='text-base font-medium hover:text-orange-600'>
+            <a
+              href='/tenants'
+              className='text-base font-medium hover:text-orange-600'
+            >
               Tenants
             </a>
           </div>
