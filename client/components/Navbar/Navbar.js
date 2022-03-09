@@ -29,6 +29,12 @@ const Navbar = ({ handleClick, isLoggedIn, user }) => (
             >
               Tenants
             </Link>
+            <Link
+              to='/property/new'
+              className='text-base font-medium hover:text-orange-600'
+            >
+              Add Property
+            </Link>
           </div>
           <div className='flex items-center md:ml-12'>
             <Link

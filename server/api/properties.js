@@ -15,13 +15,14 @@ router.get('/:propertyId', async (req, res, next) => {
         return `${firstNum},${num.slice(1)}`;
       }
     };
-
+    // Schema to be fixed, Property Model to get entry for leaseId. Frontend to conditionally load ability to add a lease to property.
     const property = await Property.findByPk(req.params.propertyId);
     const lease = await Lease.findAll({
       where: {
         propertyId: req.params.propertyId,
       },
     });
+    console.log(lease);
 
     let sqftWithComma = numFormat(property.dataValues.sqft);
     let priceWithComma = numFormat(lease[0].dataValues.price.toString());
@@ -35,5 +36,17 @@ router.get('/:propertyId', async (req, res, next) => {
     res.json({ propertyDetails: propertyDetails, leaseDetails: leaseDetails });
   } catch (err) {
     next(err);
+  }
+});
+
+router.post('/new/:userId', async (req, res, next) => {
+  try {
+    const createdProperty = await Property.create({
+      ...req.body,
+      userId: req.params.userId,
+    });
+    res.send(createdProperty);
+  } catch (error) {
+    next(error);
   }
 });
