@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('sequelize');
 const {
   models: { Property, Lease },
 } = require('../db/index.js');
@@ -15,25 +16,63 @@ router.get('/:propertyId', async (req, res, next) => {
         return `${firstNum},${num.slice(1)}`;
       }
     };
-    // Schema to be fixed, Property Model to get entry for leaseId. Frontend to conditionally load ability to add a lease to property.
+
     const property = await Property.findByPk(req.params.propertyId);
-    const lease = await Lease.findAll({
+
+    // const lease = await Lease.findAll({
+    //   where: {
+    //     propertyId: req.params.propertyId,
+    //   },
+    // });
+
+    let sqftWithComma = numFormat(property.dataValues.sqft);
+    // let priceWithComma = numFormat(lease[0].dataValues.price.toString());
+
+    let currentProperty = property.dataValues;
+    // let currentLease = { ...lease[0].dataValues };
+
+    const propertyDetails = { ...currentProperty, sqft: sqftWithComma };
+    // const leaseDetails = { ...currentLease, price: priceWithComma };
+
+    // res.json({ propertyDetails: propertyDetails, leaseDetails: leaseDetails });
+    res.json(propertyDetails);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET /api/properties
+router.get('/:propertyId/lease', async (req, res, next) => {
+  try {
+    const numFormat = (num) => {
+      if (num.length < 4) {
+        return num;
+      } else {
+        let firstNum = num[0];
+        return `${firstNum},${num.slice(1)}`;
+      }
+    };
+
+    const lease = await Lease.findOne({
       where: {
         propertyId: req.params.propertyId,
       },
+      order: [['startDate', 'DESC']],
     });
-    console.log(lease);
 
-    let sqftWithComma = numFormat(property.dataValues.sqft);
-    let priceWithComma = numFormat(lease[0].dataValues.price.toString());
+    if (lease === null) {
+      return new Error(
+        'There is no lease information available about this property. Please add a tenant.'
+      );
+    }
 
-    let currentProperty = property.dataValues;
-    let currentLease = { ...lease[0].dataValues };
+    let priceWithComma = numFormat(lease.dataValues.price.toString());
 
-    const propertyDetails = { ...currentProperty, sqft: sqftWithComma };
+    let currentLease = { ...lease.dataValues };
+
     const leaseDetails = { ...currentLease, price: priceWithComma };
 
-    res.json({ propertyDetails: propertyDetails, leaseDetails: leaseDetails });
+    res.json(leaseDetails);
   } catch (err) {
     next(err);
   }

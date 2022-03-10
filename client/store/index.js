@@ -4,14 +4,16 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import auth from './auth';
 import allPropertiesReducer from './allProperties/allProperties';
-import singlePropertyReducer from './singleProperty/singleProperty';
 import allTenantsReducer from './allTenants/allTenants';
+import singlePropertyReducer from './singleProperty/singleProperty';
+import singleLeaseReducer from './singleLease/singleLease';
 
 const reducer = combineReducers({
   auth,
   properties: allPropertiesReducer,
-  property: singlePropertyReducer,
   tenants: allTenantsReducer,
+  property: singlePropertyReducer,
+  lease: singleLeaseReducer,
 });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))

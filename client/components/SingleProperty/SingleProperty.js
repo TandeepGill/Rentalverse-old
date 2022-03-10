@@ -1,7 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { fetchSingleProperty } from '../../store/singleProperty/singleProperty';
+import {
+  fetchSingleProperty,
+  resetSingleProperty,
+} from '../../store/singleProperty/singleProperty';
+import {
+  fetchSingleLease,
+  resetSingleLease,
+} from '../../store/singleLease/singleLease';
 
 class SingleProperty extends React.Component {
   constructor() {
@@ -11,14 +18,20 @@ class SingleProperty extends React.Component {
   componentDidMount() {
     try {
       this.props.getSingleProperty(this.props.match.params.propertyId);
+      this.props.getSingleLease(this.props.match.params.propertyId);
     } catch (error) {
       console.error(error);
     }
   }
 
+  componentWillUnmount() {
+    this.props.resetSingleProperty();
+    this.props.resetSingleLease();
+  }
+
   render() {
-    const property = this.props.property.propertyDetails || {};
-    const lease = this.props.property.leaseDetails || {};
+    const property = this.props.property || {};
+    const lease = this.props.lease || {};
 
     return (
       <div className='min-h-screen'>
@@ -56,23 +69,32 @@ class SingleProperty extends React.Component {
           <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
             LEASE DETAILS
           </h1>
-          <div className='flex'>
-            <div className='flex gap-x-4'>
-              <h3>
-                <span className='font-bold'>Tenant Name:</span>{' '}
-                {`${lease.firstName} ${lease.lastName}`}
-              </h3>
-              <h4>
-                <span className='font-bold'>Price:</span> {`$${lease.price}`}
-              </h4>
-              <h4>
-                <span className='font-bold'>Start Date:</span> {lease.startDate}
-              </h4>
-              <h4>
-                <span className='font-bold'>End Date:</span> {lease.endDate}
-              </h4>
+          {Object.keys(lease).length === 0 ? (
+            <div className='flex'>
+              <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
+                Add A Tenant
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className='flex'>
+              <div className='flex gap-x-4'>
+                <h3>
+                  <span className='font-bold'>Tenant Name:</span>{' '}
+                  {`${lease.firstName} ${lease.lastName}`}
+                </h3>
+                <h4>
+                  <span className='font-bold'>Price:</span> {`$${lease.price}`}
+                </h4>
+                <h4>
+                  <span className='font-bold'>Start Date:</span>{' '}
+                  {lease.startDate}
+                </h4>
+                <h4>
+                  <span className='font-bold'>End Date:</span> {lease.endDate}
+                </h4>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -82,10 +104,14 @@ class SingleProperty extends React.Component {
 const mapStateToProps = (state) => ({
   user: state.auth,
   property: state.property,
+  lease: state.lease,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getSingleProperty: (propertyId) => dispatch(fetchSingleProperty(propertyId)),
+  getSingleLease: (propertyId) => dispatch(fetchSingleLease(propertyId)),
+  resetSingleProperty: () => dispatch(resetSingleProperty()),
+  resetSingleLease: () => dispatch(resetSingleLease()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProperty);

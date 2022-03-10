@@ -50,7 +50,8 @@ class AllTenants extends React.Component {
                   </h4>
                   <div className='flex justify-between items-between'>
                     <h4>
-                      <span className='font-bold'>Size:</span> {tenant.endDate}
+                      <span className='font-bold'>End Date:</span>{' '}
+                      {tenant.endDate}
                     </h4>
                     <Link exact to={`/properties/${tenant.property.id}`}>
                       <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
