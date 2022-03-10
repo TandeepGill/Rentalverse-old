@@ -8,13 +8,15 @@ const db = require('./db');
 
 //associations could go here!
 
-// User has many Properties and many Properties belong to User
+// One to Many -> One User, Many Properties
 User.hasMany(Property);
 Property.belongsTo(User);
 
-Property.hasOne(Lease);
+// One to Many -> One Property, Many Leases
+Property.hasMany(Lease);
 Lease.belongsTo(Property);
 
+// One to Many -> One User, Many Leasess
 User.hasMany(Lease);
 
 module.exports = {
