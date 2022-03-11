@@ -36,7 +36,7 @@ class AddNewProperty extends React.Component {
       sqft: '',
       imageURL: '',
     });
-    this.props.history.push('/properties');
+    this.props.history.push('/properties', this.props.state);
   }
 
   render() {
