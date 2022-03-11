@@ -8,11 +8,22 @@ import {
 import {
   fetchSingleLease,
   resetSingleLease,
+  addNewLease,
 } from '../../store/singleLease/singleLease';
 
 class SingleProperty extends React.Component {
   constructor() {
     super();
+    this.state = {
+      firstName: '',
+      lastName: '',
+      startDate: '',
+      endDate: '',
+      price: '',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -29,9 +40,113 @@ class SingleProperty extends React.Component {
     this.props.resetSingleLease();
   }
 
+  handleChange(evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+    });
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+
+    const state = this.state;
+    const propertyId = this.props.property.id;
+    const userId = this.props.user.id;
+
+    this.props.addNewLease({ ...state }, { propertyId, userId });
+    this.setState({
+      firstName: '',
+      lastName: '',
+      startDate: '',
+      endDate: '',
+      price: '',
+    });
+  }
+
   render() {
     const property = this.props.property || {};
     const lease = this.props.lease || {};
+
+    const { firstName, lastName, startDate, endDate, price } = this.state;
+    const { handleSubmit, handleChange } = this;
+
+    const newLeaseForm = (
+      <form
+        onSubmit={handleSubmit}
+        className='flex flex-col items-start justify-center'
+      >
+        <div className='flex mb-4 w-80 justify-between'>
+          <label htmlFor='firstName' className='font-semibold mr-4'>
+            First Name:
+          </label>
+          <input
+            name='firstName'
+            onChange={handleChange}
+            value={firstName}
+            placeholder='First Name'
+            className='border border-orange-300 rounded px-2 w-52'
+          />
+        </div>
+        <div className='flex mb-4 w-80 justify-between'>
+          <label htmlFor='lastName' className='font-semibold mr-4'>
+            Last Name:
+          </label>
+          <input
+            name='lastName'
+            onChange={handleChange}
+            value={lastName}
+            placeholder='Last Name'
+            className='border border-orange-300 rounded px-2 w-52'
+          />
+        </div>
+        <div className='flex mb-4 w-80 justify-between items-center'>
+          <label htmlFor='startDate' className='font-semibold mr-4'>
+            Start Date:
+          </label>
+          <input
+            name='startDate'
+            type='date'
+            onChange={handleChange}
+            value={startDate}
+            placeholder='Start Date'
+            className='border border-orange-300 rounded px-2 w-52'
+          />
+        </div>
+        <div className='flex mb-4 w-80 justify-between items-center'>
+          <label htmlFor='endDate' className='font-semibold mr-4'>
+            End Date:
+          </label>
+          <input
+            name='endDate'
+            type='date'
+            onChange={handleChange}
+            value={endDate}
+            placeholder='End Date'
+            className='border border-orange-300 rounded px-2 w-52'
+          />
+        </div>
+        <div className='flex mb-4 w-80 justify-between'>
+          <label htmlFor='price' className='font-semibold mr-4'>
+            Price:
+          </label>
+          <input
+            name='price'
+            onChange={handleChange}
+            value={price}
+            placeholder='0000'
+            className='border border-orange-300 rounded px-2 w-52'
+          />
+        </div>
+        <div className='flex justify-end mb-4 w-80'>
+          <button
+            type='submit'
+            className='text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center'
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    );
 
     return (
       <div className='min-h-screen'>
@@ -71,9 +186,10 @@ class SingleProperty extends React.Component {
           </h1>
           {Object.keys(lease).length === 0 ? (
             <div className='flex'>
-              <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
+              {/* <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
                 Add A Tenant
-              </div>
+              </div> */}
+              {newLeaseForm}
             </div>
           ) : (
             <div className='flex'>
@@ -112,6 +228,8 @@ const mapDispatchToProps = (dispatch) => ({
   getSingleLease: (propertyId) => dispatch(fetchSingleLease(propertyId)),
   resetSingleProperty: () => dispatch(resetSingleProperty()),
   resetSingleLease: () => dispatch(resetSingleLease()),
+  addNewLease: (tenant, { propertyId, userId }) =>
+    dispatch(addNewLease(tenant, { propertyId, userId })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProperty);

@@ -19,22 +19,12 @@ router.get('/:propertyId', async (req, res, next) => {
 
     const property = await Property.findByPk(req.params.propertyId);
 
-    // const lease = await Lease.findAll({
-    //   where: {
-    //     propertyId: req.params.propertyId,
-    //   },
-    // });
-
     let sqftWithComma = numFormat(property.dataValues.sqft);
-    // let priceWithComma = numFormat(lease[0].dataValues.price.toString());
 
     let currentProperty = property.dataValues;
-    // let currentLease = { ...lease[0].dataValues };
 
     const propertyDetails = { ...currentProperty, sqft: sqftWithComma };
-    // const leaseDetails = { ...currentLease, price: priceWithComma };
 
-    // res.json({ propertyDetails: propertyDetails, leaseDetails: leaseDetails });
     res.json(propertyDetails);
   } catch (err) {
     next(err);
@@ -78,6 +68,7 @@ router.get('/:propertyId/lease', async (req, res, next) => {
   }
 });
 
+// POST /api/properties
 router.post('/new/:userId', async (req, res, next) => {
   try {
     const createdProperty = await Property.create({
@@ -85,6 +76,20 @@ router.post('/new/:userId', async (req, res, next) => {
       userId: req.params.userId,
     });
     res.send(createdProperty);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST /api/properties
+router.post('/:propertyId/lease/new/:userId', async (req, res, next) => {
+  try {
+    const createdLease = await Lease.create({
+      ...req.body,
+      propertyId: req.params.propertyId,
+      userId: req.params.userId,
+    });
+    res.send(createdLease);
   } catch (error) {
     next(error);
   }

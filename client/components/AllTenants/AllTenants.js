@@ -59,15 +59,6 @@ class AllTenants extends React.Component {
                       </div>
                     </Link>
                   </div>
-
-                  {/* <h4>
-                    <span className='font-bold'>Size:</span> {tenant.endDate}
-                  </h4>
-                  <Link exact to={`/properties/${tenant.property.id}`}>
-                    <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
-                      Go To Property
-                    </div>
-                  </Link> */}
                 </div>
               );
             })}

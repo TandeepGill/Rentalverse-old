@@ -36,7 +36,7 @@ class AddNewProperty extends React.Component {
       sqft: '',
       imageURL: '',
     });
-    this.props.history.push('/properties', this.props.state);
+    this.props.history.push('/properties', this.state);
   }
 
   render() {
@@ -56,7 +56,7 @@ class AddNewProperty extends React.Component {
           className='flex flex-col items-start justify-center'
         >
           <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='name' className='font-semibold mr-4'>
+            <label htmlFor='type' className='font-semibold mr-4'>
               Type:
             </label>
             <input

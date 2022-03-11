@@ -3,6 +3,7 @@ import axios from 'axios';
 // ACTION TYPES
 const GET_SINGLE_LEASE = 'GET_SINGLE_LEASE';
 const RESET_SINGLE_LEASE = 'RESET_SINGLE_LEASE';
+const ADD_NEW_LEASE = 'ADD_NEW_LEASE';
 
 // ACTION CREATORS
 export const getSingleLease = (lease) => {
@@ -13,9 +14,13 @@ export const resetSingleLease = () => {
   return { type: RESET_SINGLE_LEASE };
 };
 
+export const setNewLease = (lease) => {
+  return { type: ADD_NEW_LEASE, lease };
+};
+
 // THUNK CREATORS
-export const fetchSingleLease = (propertyId) =>
-  async function (dispatch) {
+export const fetchSingleLease = (propertyId) => {
+  return async function (dispatch) {
     try {
       let { data } = await axios.get(`/api/properties/${propertyId}/lease`);
       dispatch(getSingleLease(data));
@@ -23,6 +28,24 @@ export const fetchSingleLease = (propertyId) =>
       return error;
     }
   };
+};
+
+export const addNewLease = (lease, ids) => {
+  return async function (dispatch) {
+    try {
+      let propertyId = ids.propertyId;
+      let userId = ids.userId;
+
+      let { data } = await axios.post(
+        `/api/properties/${propertyId}/lease/new/${userId}`,
+        lease
+      );
+      dispatch(setNewLease(data));
+    } catch (error) {
+      return error;
+    }
+  };
+};
 
 const initialState = {};
 
@@ -33,6 +56,8 @@ export default function singleLeaseReducer(state = initialState, action) {
       return action.lease;
     case RESET_SINGLE_LEASE:
       return initialState;
+    case ADD_NEW_LEASE:
+      return action.lease;
     default:
       return state;
   }
