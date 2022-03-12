@@ -28,6 +28,10 @@ const Lease = db.define('lease', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
+  isCurrentTenant: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
 });
 
 module.exports = Lease;
