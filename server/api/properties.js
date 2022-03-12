@@ -84,8 +84,11 @@ router.post('/new/:userId', async (req, res, next) => {
 // POST /api/properties
 router.post('/:propertyId/lease/new/:userId', async (req, res, next) => {
   try {
+    const leaseDetails = { ...req.body };
+    leaseDetails.isCurrentTenant = true;
+
     const createdLease = await Lease.create({
-      ...req.body,
+      ...leaseDetails,
       propertyId: req.params.propertyId,
       userId: req.params.userId,
     });
