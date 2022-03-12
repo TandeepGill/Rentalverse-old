@@ -46,8 +46,8 @@ router.get('/:propertyId/lease', async (req, res, next) => {
     const lease = await Lease.findOne({
       where: {
         propertyId: req.params.propertyId,
+        isCurrentTenant: true,
       },
-      order: [['startDate', 'DESC']],
     });
 
     if (lease === null) {
