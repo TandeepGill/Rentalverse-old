@@ -44,10 +44,7 @@ class AddNewProperty extends React.Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div
-        div
-        className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'
-      >
+      <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'>
         <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
           ADD A NEW PROPERTY
         </h1>
