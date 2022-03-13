@@ -4,6 +4,7 @@ import axios from 'axios';
 const GET_SINGLE_LEASE = 'GET_SINGLE_LEASE';
 const RESET_SINGLE_LEASE = 'RESET_SINGLE_LEASE';
 const ADD_NEW_LEASE = 'ADD_NEW_LEASE';
+const END_CURRENT_LEASE = 'END_CURRENT_LEASE';
 
 // ACTION CREATORS
 export const getSingleLease = (lease) => {
@@ -16,6 +17,10 @@ export const resetSingleLease = () => {
 
 export const setNewLease = (lease) => {
   return { type: ADD_NEW_LEASE, lease };
+};
+
+export const setEndCurrentLease = () => {
+  return { type: END_CURRENT_LEASE };
 };
 
 // THUNK CREATORS
@@ -47,6 +52,17 @@ export const addNewLease = (lease, ids) => {
   };
 };
 
+export const endCurrentLease = (leaseId) => {
+  return async function (dispatch) {
+    try {
+      let { data } = await axios.put(`/api/tenants/${leaseId}/end`);
+      dispatch(setEndCurrentLease());
+    } catch (error) {
+      return error;
+    }
+  };
+};
+
 const initialState = {};
 
 // REDUCER
@@ -58,6 +74,8 @@ export default function singleLeaseReducer(state = initialState, action) {
       return initialState;
     case ADD_NEW_LEASE:
       return action.lease;
+    case END_CURRENT_LEASE:
+      return initialState;
     default:
       return state;
   }
