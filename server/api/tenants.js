@@ -20,6 +20,7 @@ router.get('/:userId', async (req, res, next) => {
       where: {
         userId: req.params.userId,
       },
+      order: [['createdAt', 'ASC']],
       include: Property,
     });
 

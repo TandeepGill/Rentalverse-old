@@ -731,12 +731,16 @@ select {
   margin-bottom: 0.5rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .ml-8 {
   margin-left: 2rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mt-20 {
@@ -761,6 +765,10 @@ select {
 
 .grid {
   display: grid;
+}
+
+.h-7 {
+  height: 1.75rem;
 }
 
 .h-6 {
@@ -789,6 +797,10 @@ select {
 
 .w-2\/5 {
   width: 40%;
+}
+
+.w-36 {
+  width: 9rem;
 }
 
 .w-full {
@@ -1015,6 +1027,10 @@ select {
   padding: 0.5rem;
 }
 
+.p-0 {
+  padding: 0px;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1063,6 +1079,10 @@ select {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
 }
 
 .text-center {
