@@ -9,6 +9,7 @@ import {
   fetchSingleLease,
   resetSingleLease,
   addNewLease,
+  endCurrentLease,
 } from '../../store/singleLease/singleLease';
 
 class SingleProperty extends React.Component {
@@ -24,6 +25,7 @@ class SingleProperty extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.endLeaseHandler = this.endLeaseHandler.bind(this);
   }
 
   componentDidMount() {
@@ -63,12 +65,17 @@ class SingleProperty extends React.Component {
     });
   }
 
+  endLeaseHandler() {
+    const leaseId = this.props.lease.id;
+    this.props.endCurrentLease(leaseId);
+  }
+
   render() {
     const property = this.props.property || {};
     const lease = this.props.lease || {};
 
     const { firstName, lastName, startDate, endDate, price } = this.state;
-    const { handleSubmit, handleChange } = this;
+    const { handleSubmit, handleChange, endLeaseHandler } = this;
 
     const newLeaseForm = (
       <form
@@ -185,14 +192,9 @@ class SingleProperty extends React.Component {
             LEASE DETAILS
           </h1>
           {Object.keys(lease).length === 0 ? (
-            <div className='flex'>
-              {/* <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
-                Add A Tenant
-              </div> */}
-              {newLeaseForm}
-            </div>
+            <div className='flex'>{newLeaseForm}</div>
           ) : (
-            <div className='flex'>
+            <div className='flex items-center'>
               <div className='flex gap-x-4'>
                 <h3>
                   <span className='font-bold'>Tenant Name:</span>{' '}
@@ -208,6 +210,21 @@ class SingleProperty extends React.Component {
                 <h4>
                   <span className='font-bold'>End Date:</span> {lease.endDate}
                 </h4>
+              </div>
+              <div className='flex items-center mx-6 justify-between w-60'>
+                <button
+                  type='submit'
+                  className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28'
+                >
+                  Edit Lease
+                </button>
+                <button
+                  type='submit'
+                  onClick={endLeaseHandler}
+                  className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28'
+                >
+                  End Lease
+                </button>
               </div>
             </div>
           )}
@@ -230,6 +247,7 @@ const mapDispatchToProps = (dispatch) => ({
   resetSingleLease: () => dispatch(resetSingleLease()),
   addNewLease: (tenant, { propertyId, userId }) =>
     dispatch(addNewLease(tenant, { propertyId, userId })),
+  endCurrentLease: (leaseId) => dispatch(endCurrentLease(leaseId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProperty);
