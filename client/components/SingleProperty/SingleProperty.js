@@ -9,6 +9,7 @@ import {
   fetchSingleLease,
   resetSingleLease,
   addNewLease,
+  editCurrentLease,
   endCurrentLease,
 } from '../../store/singleLease/singleLease';
 
@@ -16,15 +17,19 @@ class SingleProperty extends React.Component {
   constructor() {
     super();
     this.state = {
-      firstName: '',
-      lastName: '',
-      startDate: '',
-      endDate: '',
-      price: '',
+      leaseDetails: {
+        firstName: '',
+        lastName: '',
+        startDate: '',
+        endDate: '',
+        price: '',
+      },
+      isEditLease: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEditSubmit = this.handleEditSubmit.bind(this);
     this.editLeaseHandler = this.editLeaseHandler.bind(this);
     this.endLeaseHandler = this.endLeaseHandler.bind(this);
   }
@@ -44,38 +49,80 @@ class SingleProperty extends React.Component {
   }
 
   handleChange(evt) {
-    this.setState({
-      [evt.target.name]: evt.target.value,
-    });
+    const localLeaseState = { ...this.state };
+    localLeaseState.leaseDetails[evt.target.name] = evt.target.value;
+    this.setState({ localLeaseState });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
 
-    const state = this.state;
+    const state = this.state.leaseDetails;
     const propertyId = this.props.property.id;
     const userId = this.props.user.id;
 
     this.props.addNewLease({ ...state }, { propertyId, userId });
     this.setState({
-      firstName: '',
-      lastName: '',
-      startDate: '',
-      endDate: '',
-      price: '',
+      leaseDetails: {
+        firstName: '',
+        lastName: '',
+        startDate: '',
+        endDate: '',
+        price: '',
+      },
+      isEditLease: false,
     });
   }
 
-  editLeaseHandler() {
-    const appState = this.props.lease;
+  handleEditSubmit(evt) {
+    evt.preventDefault();
+
+    const { firstName, lastName, startDate, endDate, price } =
+      this.state.leaseDetails;
+    const lease = {
+      firstName,
+      lastName,
+      startDate,
+      endDate,
+      price,
+    };
+    const leaseId = this.props.lease.id;
+
+    this.props.editCurrentLease(lease, leaseId);
     this.setState({
-      firstName: appState.firstName,
-      lastName: appState.lastName,
-      startDate: appState.startDate,
-      endDate: appState.endDate,
-      price: appState.price,
+      leaseDetails: {
+        firstName: '',
+        lastName: '',
+        startDate: '',
+        endDate: '',
+        price: '',
+      },
+      isEditLease: false,
     });
+  }
+
+  //.replace(/\,/g, '')
+
+  editLeaseHandler() {
     console.log('EDIT LEASE BUTTON PRESSED!');
+    const appState = { ...this.props.lease };
+    const { firstName, lastName, startDate, endDate, price } = appState;
+    console.log('APP STATE: ', appState);
+    this.setState(
+      {
+        leaseDetails: {
+          firstName: firstName,
+          lastName: lastName,
+          startDate: startDate,
+          endDate: endDate,
+          price: price,
+        },
+        isEditLease: true,
+      },
+      () => {
+        console.log('COMPONENT STATE: ', this.state);
+      }
+    );
   }
 
   endLeaseHandler() {
@@ -87,13 +134,21 @@ class SingleProperty extends React.Component {
     const property = this.props.property || {};
     const lease = this.props.lease || {};
 
-    const { firstName, lastName, startDate, endDate, price } = this.state;
-    const { handleSubmit, handleChange, editLeaseHandler, endLeaseHandler } =
-      this;
+    const { firstName, lastName, startDate, endDate, price } =
+      this.state.leaseDetails;
 
-    const newLeaseForm = (
+    const { isEditLease } = this.state;
+    const {
+      handleSubmit,
+      handleEditSubmit,
+      handleChange,
+      editLeaseHandler,
+      endLeaseHandler,
+    } = this;
+
+    const newLeaseForm = (typeOfSubmit) => (
       <form
-        onSubmit={handleSubmit}
+        onSubmit={typeOfSubmit}
         className='flex flex-col items-start justify-center'
       >
         <div className='flex mb-4 w-80 justify-between'>
@@ -179,7 +234,7 @@ class SingleProperty extends React.Component {
             <img
               className='h-60 rounded-md mr-4'
               src={property.imageURL}
-              alt=''
+              alt='Exterior of property'
             />
             <div className='flex flex-col justify-center gap-y-2'>
               <h3>
@@ -205,9 +260,15 @@ class SingleProperty extends React.Component {
           <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
             LEASE DETAILS
           </h1>
-          {Object.keys(lease).length === 0 ? (
-            <div className='flex'>{newLeaseForm}</div>
-          ) : (
+          {Object.keys(lease).length === 0 && (
+            <div className='flex'>{newLeaseForm(handleSubmit)}</div>
+          )}
+
+          {isEditLease && (
+            <div className='flex'>{newLeaseForm(handleEditSubmit)}</div>
+          )}
+
+          {!isEditLease && (
             <div className='flex items-center'>
               <div className='flex gap-x-4'>
                 <h3>
@@ -262,6 +323,8 @@ const mapDispatchToProps = (dispatch) => ({
   resetSingleLease: () => dispatch(resetSingleLease()),
   addNewLease: (tenant, { propertyId, userId }) =>
     dispatch(addNewLease(tenant, { propertyId, userId })),
+  editCurrentLease: (lease, leaseId) =>
+    dispatch(editCurrentLease(lease, leaseId)),
   endCurrentLease: (leaseId) => dispatch(endCurrentLease(leaseId)),
 });
 

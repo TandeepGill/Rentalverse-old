@@ -51,9 +51,7 @@ router.get('/:propertyId/lease', async (req, res, next) => {
     });
 
     if (lease === null) {
-      return new Error(
-        'There is no lease information available about this property. Please add a tenant.'
-      );
+      return new Error('No lease information found.');
     }
 
     let priceWithComma = numFormat(lease.dataValues.price.toString());
