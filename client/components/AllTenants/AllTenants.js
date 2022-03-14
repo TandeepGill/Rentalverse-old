@@ -37,6 +37,10 @@ class AllTenants extends React.Component {
 
     const { handleChange } = this;
 
+    const numFormat = (num) => {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    };
+
     const tenantLayout = (tenant) => (
       <div
         key={tenant.id}
@@ -50,7 +54,8 @@ class AllTenants extends React.Component {
           <span className='font-bold'>Address:</span> {tenant.property.address}
         </h4>
         <h4>
-          <span className='font-bold'>Lease Price:</span> {`$${tenant.price}`}
+          <span className='font-bold'>Lease Price:</span>{' '}
+          {`$${numFormat(tenant.price)}`}
         </h4>
         <h4>
           <span className='font-bold'>Start Date:</span> {tenant.startDate}
@@ -98,10 +103,13 @@ class AllTenants extends React.Component {
           </div>
           <div className='flex flex-wrap'>
             {this.state.dropDown === 'all' &&
+              allTenants.length > 0 &&
               allTenants.map((tenant) => tenantLayout(tenant))}
             {this.state.dropDown === 'current' &&
+              currentTenants.length > 0 &&
               currentTenants.map((tenant) => tenantLayout(tenant))}
             {this.state.dropDown === 'previous' &&
+              previousTenants.length > 0 &&
               previousTenants.map((tenant) => tenantLayout(tenant))}
           </div>
         </div>
