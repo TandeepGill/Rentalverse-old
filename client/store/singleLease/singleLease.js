@@ -4,6 +4,7 @@ import axios from 'axios';
 const GET_SINGLE_LEASE = 'GET_SINGLE_LEASE';
 const RESET_SINGLE_LEASE = 'RESET_SINGLE_LEASE';
 const ADD_NEW_LEASE = 'ADD_NEW_LEASE';
+const EDIT_CURRENT_LEASE = 'EDIT_CURRENT_LEASE';
 const END_CURRENT_LEASE = 'END_CURRENT_LEASE';
 
 // ACTION CREATORS
@@ -17,6 +18,10 @@ export const resetSingleLease = () => {
 
 export const setNewLease = (lease) => {
   return { type: ADD_NEW_LEASE, lease };
+};
+
+export const setEditCurrentLease = (lease) => {
+  return { type: EDIT_CURRENT_LEASE, lease };
 };
 
 export const setEndCurrentLease = () => {
@@ -52,6 +57,17 @@ export const addNewLease = (lease, ids) => {
   };
 };
 
+export const editCurrentLease = (lease, leaseId) => {
+  return async function (dispatch) {
+    try {
+      let { data } = await axios.put(`/api/tenants/${leaseId}/edit`, lease);
+      dispatch(setEditCurrentLease(data));
+    } catch (error) {
+      return error;
+    }
+  };
+};
+
 export const endCurrentLease = (leaseId) => {
   return async function (dispatch) {
     try {
@@ -73,6 +89,8 @@ export default function singleLeaseReducer(state = initialState, action) {
     case RESET_SINGLE_LEASE:
       return initialState;
     case ADD_NEW_LEASE:
+      return action.lease;
+    case EDIT_CURRENT_LEASE:
       return action.lease;
     case END_CURRENT_LEASE:
       return initialState;

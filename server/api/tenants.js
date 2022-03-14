@@ -42,10 +42,22 @@ router.get('/:userId', async (req, res, next) => {
 });
 
 // PUT /api/tenants
+router.put('/:leaseId/edit', async (req, res, next) => {
+  try {
+    const lease = await Lease.findByPk(req.params.leaseId);
+    await lease.update({ ...req.body });
+
+    res.json(lease);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// PUT /api/tenants
 router.put('/:leaseId/end', async (req, res, next) => {
   try {
     const lease = await Lease.findByPk(req.params.leaseId);
-    lease.update({ isCurrentTenant: false });
+    await lease.update({ isCurrentTenant: false });
 
     res.json(lease);
   } catch (err) {
