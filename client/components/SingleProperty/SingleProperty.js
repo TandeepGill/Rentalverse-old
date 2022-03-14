@@ -101,8 +101,6 @@ class SingleProperty extends React.Component {
     });
   }
 
-  //.replace(/\,/g, '')
-
   editLeaseHandler() {
     const appState = { ...this.props.lease };
     const { firstName, lastName, startDate, endDate, price } = appState;
@@ -141,7 +139,7 @@ class SingleProperty extends React.Component {
     } = this;
 
     const numFormat = (num) => {
-      return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
     const newLeaseForm = (typeOfSubmit) => (
@@ -278,7 +276,8 @@ class SingleProperty extends React.Component {
                   {`${lease.firstName} ${lease.lastName}`}
                 </h3>
                 <h4>
-                  <span className='font-bold'>Price:</span> {`$${lease.price}`}
+                  <span className='font-bold'>Price:</span>{' '}
+                  {`$${numFormat(lease.price)}`}
                 </h4>
                 <h4>
                   <span className='font-bold'>Start Date:</span>{' '}

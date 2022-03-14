@@ -16,7 +16,7 @@ class AllProperties extends React.Component {
     const properties = this.props.properties || [];
 
     const numFormat = (num) => {
-      return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
     return (

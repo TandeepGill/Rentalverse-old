@@ -32,15 +32,6 @@ router.get('/:propertyId', async (req, res, next) => {
 // GET /api/properties --> Gets a single property's lease based on Property ID.
 router.get('/:propertyId/lease', async (req, res, next) => {
   try {
-    const numFormat = (num) => {
-      if (num.length < 4) {
-        return num;
-      } else {
-        let firstNum = num[0];
-        return `${firstNum},${num.slice(1)}`;
-      }
-    };
-
     const lease = await Lease.findOne({
       where: {
         propertyId: req.params.propertyId,
@@ -52,13 +43,7 @@ router.get('/:propertyId/lease', async (req, res, next) => {
       return new Error('No lease information found.');
     }
 
-    let priceWithComma = numFormat(lease.dataValues.price.toString());
-
-    let currentLease = { ...lease.dataValues };
-
-    const leaseDetails = { ...currentLease, price: priceWithComma };
-
-    res.json(leaseDetails);
+    res.json(lease);
   } catch (err) {
     next(err);
   }
