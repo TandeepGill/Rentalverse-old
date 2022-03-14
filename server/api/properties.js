@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const sequelize = require('sequelize');
 const {
   models: { Property, Lease },
 } = require('../db/index.js');
@@ -13,6 +12,7 @@ router.get('/', async (req, res, next) => {
         userId: req.query.userId,
       },
     });
+
     res.json(properties);
   } catch (err) {
     next(err);
@@ -23,6 +23,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:propertyId', async (req, res, next) => {
   try {
     const property = await Property.findByPk(req.params.propertyId);
+
     res.json(property);
   } catch (err) {
     next(err);
@@ -56,6 +57,7 @@ router.post('/new/:userId', async (req, res, next) => {
       ...req.body,
       userId: req.params.userId,
     });
+
     res.json(createdProperty);
   } catch (error) {
     next(error);
@@ -73,6 +75,7 @@ router.post('/:propertyId/lease/new/:userId', async (req, res, next) => {
       propertyId: req.params.propertyId,
       userId: req.params.userId,
     });
+
     res.json(createdLease);
   } catch (error) {
     next(error);

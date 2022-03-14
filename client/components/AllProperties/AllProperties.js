@@ -15,7 +15,8 @@ class AllProperties extends React.Component {
   render() {
     const properties = this.props.properties || [];
 
-    const numFormat = (num) => {
+    //Fromats a number to a string with commas
+    const numToStringFormat = (num) => {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
@@ -47,7 +48,7 @@ class AllProperties extends React.Component {
                       </dd>
                       <dd className='mt-3'>
                         <span className='px-2 py-1 text-orange-600 text-base font-medium bg-orange-50 rounded-md'>
-                          {numFormat(property.sqft)} sqft
+                          {numToStringFormat(property.sqft)} sqft
                         </span>
                       </dd>
                     </dl>

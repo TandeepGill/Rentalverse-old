@@ -27,7 +27,17 @@ class AddNewProperty extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addNewProperty({ ...this.state }, this.props.user.id);
+
+    const propertyDetails = { ...this.state };
+
+    //Removes all non-numeric characters from property bedroom, bathroom and sqft
+    propertyDetails.bedroom = propertyDetails.bedroom.replace(/\D/g, '');
+    propertyDetails.bathroom = propertyDetails.bathroom.replace(/\D/g, '');
+    propertyDetails.sqft = propertyDetails.sqft.replace(/\D/g, '');
+
+    const property = { ...propertyDetails };
+
+    this.props.addNewProperty({ ...property }, this.props.user.id);
     this.setState({
       type: '',
       address: '',
@@ -36,7 +46,7 @@ class AddNewProperty extends React.Component {
       sqft: '',
       imageURL: '',
     });
-    this.props.history.push('/properties', this.state);
+    this.props.history.push('/properties', { ...property });
   }
 
   render() {
@@ -137,7 +147,7 @@ class AddNewProperty extends React.Component {
           <div className='flex justify-end mb-4 w-80'>
             <button
               type='submit'
-              className='text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center'
+              className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center'
             >
               Submit
             </button>
