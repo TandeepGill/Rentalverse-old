@@ -56,13 +56,23 @@ class AddNewProperty extends React.Component {
             <label htmlFor='type' className='font-semibold mr-4'>
               Type:
             </label>
-            <input
+            <select
               name='type'
               onChange={handleChange}
-              value={type}
-              placeholder='Property Type'
-              className='border border-orange-300 rounded px-2'
-            />
+              defaultValue='Select Your Option'
+              className='border border-orange-300 rounded px-2 w-52 h-7 ml-3 p-0'
+            >
+              <option
+                value='Select Your Option'
+                disabled
+                className='text-slate-200'
+              >
+                Select Your Option
+              </option>
+              <option value='Single-Family'>Single-Family</option>
+              <option value='Townhouse'>Townhouse</option>
+              <option value='Condo'>Condo</option>
+            </select>
           </div>
           <div className='flex mb-4 w-80 justify-between'>
             <label htmlFor='address' className='font-semibold mr-4'>
@@ -73,7 +83,7 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={address}
               placeholder='Street, City, State, Zip'
-              className='border border-orange-300 rounded px-2'
+              className='border border-orange-300 rounded px-2 w-52 h-7'
             />
           </div>
           <div className='flex mb-4 w-80 justify-between'>
@@ -85,7 +95,7 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={bedroom}
               placeholder='Bedroom Count'
-              className='border border-orange-300 rounded px-2'
+              className='border border-orange-300 rounded px-2 w-52 h-7'
             />
           </div>
           <div className='flex mb-4 w-80 justify-between'>
@@ -97,7 +107,7 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={bathroom}
               placeholder='Bathroom Count'
-              className='border border-orange-300 rounded px-2'
+              className='border border-orange-300 rounded px-2 w-52 h-7'
             />
           </div>
           <div className='flex mb-4 w-80 justify-between'>
@@ -109,7 +119,7 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={sqft}
               placeholder='Property Sqft'
-              className='border border-orange-300 rounded px-2'
+              className='border border-orange-300 rounded px-2 w-52 h-7'
             />
           </div>
           <div className='flex mb-4 w-80 justify-between'>
@@ -121,7 +131,7 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={imageURL}
               placeholder='Image URL'
-              className='border border-orange-300 rounded px-2'
+              className='border border-orange-300 rounded px-2 w-52 h-7'
             />
           </div>
           <div className='flex justify-end mb-4 w-80'>
