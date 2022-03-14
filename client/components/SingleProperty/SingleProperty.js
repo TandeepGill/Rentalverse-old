@@ -57,11 +57,14 @@ class SingleProperty extends React.Component {
   handleSubmit(evt) {
     evt.preventDefault();
 
-    const state = this.state.leaseDetails;
+    const lease = this.state.leaseDetails;
     const propertyId = this.props.property.id;
     const userId = this.props.user.id;
 
-    this.props.addNewLease({ ...state }, { propertyId, userId });
+    //Removes all non-numeric characters from price
+    lease.price = lease.price.replace(/\D/g, '');
+
+    this.props.addNewLease({ ...lease }, { propertyId, userId });
     this.setState({
       leaseDetails: {
         firstName: '',
@@ -77,8 +80,13 @@ class SingleProperty extends React.Component {
   handleEditSubmit(evt) {
     evt.preventDefault();
 
-    const { firstName, lastName, startDate, endDate, price } =
-      this.state.leaseDetails;
+    const leaseDetails = this.state.leaseDetails;
+
+    //Removes all non-numeric characters from price
+    leaseDetails.price = leaseDetails.price.replace(/\D/g, '');
+
+    const { firstName, lastName, startDate, endDate, price } = leaseDetails;
+
     const lease = {
       firstName,
       lastName,
@@ -138,7 +146,8 @@ class SingleProperty extends React.Component {
       endLeaseHandler,
     } = this;
 
-    const numFormat = (num) => {
+    //Fromats a number to a string with commas
+    const numToStringFormat = (num) => {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
@@ -205,7 +214,7 @@ class SingleProperty extends React.Component {
             name='price'
             onChange={handleChange}
             value={price}
-            placeholder='0000'
+            placeholder='Lease Price'
             className='border border-orange-300 rounded px-2 w-52'
           />
         </div>
@@ -250,7 +259,7 @@ class SingleProperty extends React.Component {
                 </h4>
                 <h4>
                   <span className='font-bold'>Size:</span>{' '}
-                  {numFormat(property.sqft)} sqft
+                  {numToStringFormat(property.sqft)} sqft
                 </h4>
               </div>
             </div>
@@ -277,7 +286,7 @@ class SingleProperty extends React.Component {
                 </h3>
                 <h4>
                   <span className='font-bold'>Price:</span>{' '}
-                  {`$${numFormat(lease.price)}`}
+                  {`$${numToStringFormat(lease.price)}`}
                 </h4>
                 <h4>
                   <span className='font-bold'>Start Date:</span>{' '}
