@@ -268,7 +268,7 @@ class SingleProperty extends React.Component {
             <div className='flex'>{newLeaseForm(handleEditSubmit)}</div>
           )}
 
-          {!isEditLease && (
+          {!isEditLease && Object.keys(lease).length > 1 && (
             <div className='flex items-center'>
               <div className='flex gap-x-4'>
                 <h3>

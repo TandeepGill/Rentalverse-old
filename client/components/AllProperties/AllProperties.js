@@ -14,6 +14,7 @@ class AllProperties extends React.Component {
 
   render() {
     const properties = this.props.properties || [];
+
     const sqftFormat = (sqft) => {
       if (sqft.length < 4) {
         return sqft;
@@ -50,7 +51,7 @@ class AllProperties extends React.Component {
                       </dd>
                       <dd className='mt-3'>
                         <span className='px-2 py-1 text-orange-600 text-base font-medium bg-orange-50 rounded-md'>
-                          {sqftFormat(property.sqft)} sqft
+                          {property.sqft} sqft
                         </span>
                       </dd>
                     </dl>
