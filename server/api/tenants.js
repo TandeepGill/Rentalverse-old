@@ -4,7 +4,7 @@ const {
 } = require('../db/index.js');
 module.exports = router;
 
-// GET /api/tenants
+// GET /api/tenants --> Gets all tenants for a user based on User ID.
 router.get('/:userId', async (req, res, next) => {
   try {
     const numFormat = (num) => {
@@ -41,7 +41,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 
-// PUT /api/tenants
+// PUT /api/tenants --> Updates a single lease based on Lease ID.
 router.put('/:leaseId/edit', async (req, res, next) => {
   try {
     const lease = await Lease.findByPk(req.params.leaseId);
@@ -53,7 +53,7 @@ router.put('/:leaseId/edit', async (req, res, next) => {
   }
 });
 
-// PUT /api/tenants
+// PUT /api/tenants --> Updates a single to not current based on Lease ID.
 router.put('/:leaseId/end', async (req, res, next) => {
   try {
     const lease = await Lease.findByPk(req.params.leaseId);

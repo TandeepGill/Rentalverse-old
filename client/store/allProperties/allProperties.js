@@ -12,7 +12,9 @@ export const getAllProperties = (properties) => {
 export const fetchAllProperties = (userId) =>
   async function (dispatch) {
     try {
-      let { data } = await axios.get(`/api/users/${userId}/properties`);
+      let { data } = await axios.get(`/api/properties`, {
+        params: { userId },
+      });
       dispatch(getAllProperties(data));
     } catch (error) {
       return error;
