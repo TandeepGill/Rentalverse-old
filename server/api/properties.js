@@ -22,24 +22,8 @@ router.get('/', async (req, res, next) => {
 // GET /api/properties --> Gets a single property based on Property ID.
 router.get('/:propertyId', async (req, res, next) => {
   try {
-    const numFormat = (num) => {
-      if (num.length < 4) {
-        return num;
-      } else {
-        let firstNum = num[0];
-        return `${firstNum},${num.slice(1)}`;
-      }
-    };
-
     const property = await Property.findByPk(req.params.propertyId);
-
-    let sqftWithComma = numFormat(property.dataValues.sqft);
-
-    let currentProperty = property.dataValues;
-
-    const propertyDetails = { ...currentProperty, sqft: sqftWithComma };
-
-    res.json(propertyDetails);
+    res.json(property);
   } catch (err) {
     next(err);
   }

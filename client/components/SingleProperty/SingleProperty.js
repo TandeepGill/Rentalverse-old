@@ -104,25 +104,19 @@ class SingleProperty extends React.Component {
   //.replace(/\,/g, '')
 
   editLeaseHandler() {
-    console.log('EDIT LEASE BUTTON PRESSED!');
     const appState = { ...this.props.lease };
     const { firstName, lastName, startDate, endDate, price } = appState;
-    console.log('APP STATE: ', appState);
-    this.setState(
-      {
-        leaseDetails: {
-          firstName: firstName,
-          lastName: lastName,
-          startDate: startDate,
-          endDate: endDate,
-          price: price,
-        },
-        isEditLease: true,
+
+    this.setState({
+      leaseDetails: {
+        firstName: firstName,
+        lastName: lastName,
+        startDate: startDate,
+        endDate: endDate,
+        price: price,
       },
-      () => {
-        console.log('COMPONENT STATE: ', this.state);
-      }
-    );
+      isEditLease: true,
+    });
   }
 
   endLeaseHandler() {
@@ -145,6 +139,10 @@ class SingleProperty extends React.Component {
       editLeaseHandler,
       endLeaseHandler,
     } = this;
+
+    const numFormat = (num) => {
+      return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    };
 
     const newLeaseForm = (typeOfSubmit) => (
       <form
@@ -216,7 +214,7 @@ class SingleProperty extends React.Component {
         <div className='flex justify-end mb-4 w-80'>
           <button
             type='submit'
-            className='text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center'
+            className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer'
           >
             Submit
           </button>
@@ -230,31 +228,35 @@ class SingleProperty extends React.Component {
           <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
             PROPERTY DETAILS
           </h1>
-          <div className='flex'>
-            <img
-              className='h-60 rounded-md mr-4'
-              src={property.imageURL}
-              alt='Exterior of property'
-            />
-            <div className='flex flex-col justify-center gap-y-2'>
-              <h3>
-                <span className='font-bold'>Type:</span> {property.type}
-              </h3>
-              <h4>
-                <span className='font-bold'>Address:</span> {property.address}
-              </h4>
-              <h4>
-                <span className='font-bold'>Bedrooms:</span> {property.bedroom}
-              </h4>
-              <h4>
-                <span className='font-bold'>Bathrooms:</span>{' '}
-                {property.bathroom}
-              </h4>
-              <h4>
-                <span className='font-bold'>Size:</span> {property.sqft} sqft
-              </h4>
+          {Object.keys(property).length > 0 && (
+            <div className='flex'>
+              <img
+                className='h-60 rounded-md mr-4'
+                src={property.imageURL}
+                alt='Exterior of property'
+              />
+              <div className='flex flex-col justify-center gap-y-2'>
+                <h3>
+                  <span className='font-bold'>Type:</span> {property.type}
+                </h3>
+                <h4>
+                  <span className='font-bold'>Address:</span> {property.address}
+                </h4>
+                <h4>
+                  <span className='font-bold'>Bedrooms:</span>{' '}
+                  {property.bedroom}
+                </h4>
+                <h4>
+                  <span className='font-bold'>Bathrooms:</span>{' '}
+                  {property.bathroom}
+                </h4>
+                <h4>
+                  <span className='font-bold'>Size:</span>{' '}
+                  {numFormat(property.sqft)} sqft
+                </h4>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
           <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
@@ -290,14 +292,14 @@ class SingleProperty extends React.Component {
                 <button
                   type='submit'
                   onClick={editLeaseHandler}
-                  className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28'
+                  className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-5 py-2 text-center w-28 cursor-pointer'
                 >
                   Edit Lease
                 </button>
                 <button
                   type='submit'
                   onClick={endLeaseHandler}
-                  className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28'
+                  className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28 cursor-pointer'
                 >
                   End Lease
                 </button>
