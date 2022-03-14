@@ -25,6 +25,7 @@ class SingleProperty extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.editLeaseHandler = this.editLeaseHandler.bind(this);
     this.endLeaseHandler = this.endLeaseHandler.bind(this);
   }
 
@@ -65,6 +66,18 @@ class SingleProperty extends React.Component {
     });
   }
 
+  editLeaseHandler() {
+    const appState = this.props.lease;
+    this.setState({
+      firstName: appState.firstName,
+      lastName: appState.lastName,
+      startDate: appState.startDate,
+      endDate: appState.endDate,
+      price: appState.price,
+    });
+    console.log('EDIT LEASE BUTTON PRESSED!');
+  }
+
   endLeaseHandler() {
     const leaseId = this.props.lease.id;
     this.props.endCurrentLease(leaseId);
@@ -75,7 +88,8 @@ class SingleProperty extends React.Component {
     const lease = this.props.lease || {};
 
     const { firstName, lastName, startDate, endDate, price } = this.state;
-    const { handleSubmit, handleChange, endLeaseHandler } = this;
+    const { handleSubmit, handleChange, editLeaseHandler, endLeaseHandler } =
+      this;
 
     const newLeaseForm = (
       <form
@@ -214,6 +228,7 @@ class SingleProperty extends React.Component {
               <div className='flex items-center mx-6 justify-between w-60'>
                 <button
                   type='submit'
+                  onClick={editLeaseHandler}
                   className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28'
                 >
                   Edit Lease
