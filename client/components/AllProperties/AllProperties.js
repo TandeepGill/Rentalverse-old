@@ -15,14 +15,10 @@ class AllProperties extends React.Component {
   render() {
     const properties = this.props.properties || [];
 
-    const sqftFormat = (sqft) => {
-      if (sqft.length < 4) {
-        return sqft;
-      } else {
-        let firstNum = sqft[0];
-        return `${firstNum},${sqft.slice(1)}`;
-      }
+    const numFormat = (num) => {
+      return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
+
     return (
       <div className='mx-28 my-6 place-content-center min-h-screen'>
         <ul
@@ -51,7 +47,7 @@ class AllProperties extends React.Component {
                       </dd>
                       <dd className='mt-3'>
                         <span className='px-2 py-1 text-orange-600 text-base font-medium bg-orange-50 rounded-md'>
-                          {property.sqft} sqft
+                          {numFormat(property.sqft)} sqft
                         </span>
                       </dd>
                     </dl>
