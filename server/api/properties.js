@@ -53,8 +53,20 @@ router.get('/:propertyId/lease', async (req, res, next) => {
 // POST /api/properties --> Creates a new property for a user based on User ID.
 router.post('/new/:userId', async (req, res, next) => {
   try {
+    const property = { ...req.body };
+    let combinedAddress = `${property.addressLineOne}\n${property.addressLineTwo}`;
+
+    const newProperty = {
+      type: property.type,
+      address: combinedAddress,
+      bedroom: property.bedroom,
+      bathroom: property.bathroom,
+      sqft: property.sqft,
+      imageURL: property.imageURL,
+    };
+
     const createdProperty = await Property.create({
-      ...req.body,
+      ...newProperty,
       userId: req.params.userId,
     });
 

@@ -8,7 +8,8 @@ class AddNewProperty extends React.Component {
     super();
     this.state = {
       type: '',
-      address: '',
+      addressLineOne: '',
+      addressLineTwo: '',
       bedroom: '',
       bathroom: '',
       sqft: '',
@@ -40,7 +41,8 @@ class AddNewProperty extends React.Component {
     this.props.addNewProperty({ ...property }, this.props.user.id);
     this.setState({
       type: '',
-      address: '',
+      addressLineOne: '',
+      addressLineTwo: '',
       bedroom: '',
       bathroom: '',
       sqft: '',
@@ -50,11 +52,19 @@ class AddNewProperty extends React.Component {
   }
 
   render() {
-    const { type, address, bedroom, bathroom, sqft, imageURL } = this.state;
+    const {
+      type,
+      addressLineOne,
+      addressLineTwo,
+      bedroom,
+      bathroom,
+      sqft,
+      imageURL,
+    } = this.state;
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'>
+      <div className='max-w-4xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'>
         <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
           ADD A NEW PROPERTY
         </h1>
@@ -62,15 +72,15 @@ class AddNewProperty extends React.Component {
           onSubmit={handleSubmit}
           className='flex flex-col items-start justify-center'
         >
-          <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='type' className='font-semibold mr-4'>
+          <div className='flex mb-4 w-2/5 justify-between'>
+            <label htmlFor='type' className='font-semibold mr-4 w-36'>
               Type:
             </label>
             <select
               name='type'
               onChange={handleChange}
               defaultValue='Select Your Option'
-              className='border border-orange-300 rounded px-2 w-52 h-7 ml-3 p-0'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7 p-0'
             >
               <option
                 value='Select Your Option'
@@ -84,20 +94,32 @@ class AddNewProperty extends React.Component {
               <option value='Condo'>Condo</option>
             </select>
           </div>
-          <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='address' className='font-semibold mr-4'>
-              Address:
+          <div className='flex mb-4 w-2/5 justify-between items-center'>
+            <label htmlFor='addressLineOne' className='font-semibold mr-4 w-36'>
+              Address Line 1:
             </label>
             <input
-              name='address'
+              name='addressLineOne'
               onChange={handleChange}
-              value={address}
-              placeholder='Street, City, State, Zip'
-              className='border border-orange-300 rounded px-2 w-52 h-7'
+              value={addressLineOne}
+              placeholder='Street Number and Name'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7'
             />
           </div>
-          <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='bedroom' className='font-semibold mr-4'>
+          <div className='flex mb-4 w-2/5 justify-between items-center'>
+            <label htmlFor='addressLineTwo' className='font-semibold mr-4 w-36'>
+              Address Line 2:
+            </label>
+            <input
+              name='addressLineTwo'
+              onChange={handleChange}
+              value={addressLineTwo}
+              placeholder='City, State Zip'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7'
+            />
+          </div>
+          <div className='flex mb-4 w-2/5 justify-between'>
+            <label htmlFor='bedroom' className='font-semibold mr-4 w-36'>
               Bedroom:
             </label>
             <input
@@ -105,11 +127,11 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={bedroom}
               placeholder='Bedroom Count'
-              className='border border-orange-300 rounded px-2 w-52 h-7'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7'
             />
           </div>
-          <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='bathroom' className='font-semibold mr-4'>
+          <div className='flex mb-4 w-2/5 justify-between'>
+            <label htmlFor='bathroom' className='font-semibold mr-4 w-36'>
               Bathroom:
             </label>
             <input
@@ -117,11 +139,11 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={bathroom}
               placeholder='Bathroom Count'
-              className='border border-orange-300 rounded px-2 w-52 h-7'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7'
             />
           </div>
-          <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='sqft' className='font-semibold mr-4'>
+          <div className='flex mb-4 w-2/5 justify-between'>
+            <label htmlFor='sqft' className='font-semibold mr-4 w-36'>
               Sqft:
             </label>
             <input
@@ -129,11 +151,11 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={sqft}
               placeholder='Property Sqft'
-              className='border border-orange-300 rounded px-2 w-52 h-7'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7'
             />
           </div>
-          <div className='flex mb-4 w-80 justify-between'>
-            <label htmlFor='imageURL' className='font-semibold mr-4'>
+          <div className='flex mb-4 w-2/5 justify-between'>
+            <label htmlFor='imageURL' className='font-semibold mr-4 w-36'>
               Image:
             </label>
             <input
@@ -141,13 +163,13 @@ class AddNewProperty extends React.Component {
               onChange={handleChange}
               value={imageURL}
               placeholder='Image URL'
-              className='border border-orange-300 rounded px-2 w-52 h-7'
+              className='border border-orange-300 rounded px-2 w-3/4 h-7'
             />
           </div>
-          <div className='flex justify-end mb-4 w-80'>
+          <div className='flex justify-end mb-4 w-2/5'>
             <button
               type='submit'
-              className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center'
+              className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-32'
             >
               Submit
             </button>
