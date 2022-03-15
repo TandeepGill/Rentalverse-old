@@ -4,6 +4,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { fetchAllProperties } from '../../store/allProperties/allProperties';
 
 class AllProperties extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      dropDown: 'All',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   componentDidMount() {
     try {
       this.props.getAllProperties(this.props.user.id);
@@ -12,68 +20,125 @@ class AllProperties extends React.Component {
     }
   }
 
+  handleChange(evt) {
+    this.setState({
+      dropDown: evt.target.value,
+    });
+  }
+
   render() {
-    const properties = this.props.properties || [];
+    const allProperties = this.props.properties || [];
+    const singleFamily = allProperties.filter(
+      (property) => property.type === 'Single-Family'
+    );
+    const townhouses = allProperties.filter(
+      (property) => property.type === 'Townhouse'
+    );
+    const condos = allProperties.filter(
+      (property) => property.type === 'Condo'
+    );
+
+    const { handleChange } = this;
 
     //Fromats a number to a string with commas
     const numToStringFormat = (num) => {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
+    //Fromats an address to display on two lines
+    const addressFormat = (address) => {
+      const splitAddress = address.split('\n');
+      const addressLineOne = splitAddress[0];
+      const addressLineTwo = splitAddress[1];
+      return { addressLineOne, addressLineTwo };
+    };
+
+    const newPropertyLayout = (property) => (
+      <div
+        key={property.id}
+        className='flex flex-col w-1/4 border-2 p-2 mr-6 mb-6 border-orange-300 rounded-md items-center'
+      >
+        <Link to={`/properties/${property.id}`}>
+          <div className='m-0.5'>
+            <img
+              className='rounded-md mb-2 object-cover'
+              src={property.imageURL}
+              alt=''
+            />
+          </div>
+          <h3 className='mt-6 text-gray-900 font-medium text-center mb-2'>
+            {addressFormat(property.address).addressLineOne}
+            <br />
+            {addressFormat(property.address).addressLineTwo}
+          </h3>
+          <h4 className='text-gray-500 text-base mb-2 text-center'>
+            {property.type}
+          </h4>
+          <h4 className='rounded-md mb-4 text-center'>
+            <span className='text-orange-600 bg-orange-50 px-2 py-1 font-medium'>
+              {numToStringFormat(property.sqft)} sqft
+            </span>
+          </h4>
+          <div className='flex justify-center space-x-4 mb-2'>
+            <h3>
+              Bedrooms:{' '}
+              <span className='text-orange-600 bg-orange-50 px-2 py-1 font-medium'>
+                {property.bedroom}
+              </span>
+            </h3>
+            <h3>
+              Bathrooms:{' '}
+              <span className='text-orange-600 bg-orange-50 px-2 py-1 font-medium'>
+                {property.bathroom}
+              </span>
+            </h3>
+          </div>
+        </Link>
+      </div>
+    );
+
     return (
-      <div className='mx-28 my-6 place-content-center min-h-screen'>
-        <ul
-          role='list'
-          className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'
-        >
-          {properties.length > 0 ? (
-            properties.map((property) => (
-              <li
-                key={property.id}
-                className='col-span-1 flex flex-col text-center bg-white rounded-lg shadow shadow-orange-200 divide-y divide-orange-200'
+      <div>
+        <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'>
+          <div className='flex items-center mb-4'>
+            <h1 className='text-2xl font-bold underline text-orange-600'>
+              {this.state.dropDown === 'All' && 'ALL PROPERTIES'}
+              {this.state.dropDown === 'Single-Family' &&
+                'SINGLE-FAMILY PROPERTIES'}
+              {this.state.dropDown === 'Townhouse' && 'TOWNHOUSE PROPERTIES'}
+              {this.state.dropDown === 'Condo' && 'CONDO PROPERTIES'}
+            </h1>
+            <div className='flex ml-8 justify-center items-center'>
+              <label htmlFor='properties'>Filter Properties:</label>
+              <select
+                name='properties'
+                onChange={handleChange}
+                className='w-36 h-7 ml-3 p-0 pl-2'
               >
-                <Link to={`/properties/${property.id}`}>
-                  <div className='flex-1 flex flex-col p-8'>
-                    <img
-                      className='w-38 h-38 flex-shrink-0 mx-auto rounded-md'
-                      src={property.imageURL}
-                      alt=''
-                    />
-                    <h3 className='mt-6 text-gray-900 text-base font-medium'>
-                      {property.address}
-                    </h3>
-                    <dl className='mt-1 flex-grow flex flex-col justify-between'>
-                      <dd className='text-gray-500 text-base'>
-                        {property.type}
-                      </dd>
-                      <dd className='mt-3'>
-                        <span className='px-2 py-1 text-orange-600 text-base font-medium bg-orange-50 rounded-md'>
-                          {numToStringFormat(property.sqft)} sqft
-                        </span>
-                      </dd>
-                    </dl>
-                  </div>
-                </Link>
-                <div>
-                  <div className='-mt-px flex divide-x divide-orange-200'>
-                    <div className='w-0 flex-1 flex'>
-                      <h3 className='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-base text-orange-600 font-medium border border-transparent rounded-br-lg hover:text-orange-700'>
-                        Bedrooms: {property.bedroom}
-                      </h3>
-                    </div>
-                    <div className='-ml-px w-0 flex-1 flex'>
-                      <h3 className='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-base text-orange-600 font-medium border border-transparent rounded-br-lg hover:text-orange-700'>
-                        Bathrooms: {property.bathroom}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            ))
-          ) : (
-            <h1 className='text-xl'>'You have no properties to display!'</h1>
-          )}
-        </ul>
+                <option value='All'>All</option>
+                <option value='Single-Family'>Single-Family</option>
+                <option value='Townhouse'>Townhouse</option>
+                <option value='Condo'>Condo</option>
+              </select>
+            </div>
+          </div>
+          <div className='flex flex-wrap'>
+            {this.state.dropDown === 'All' &&
+              allProperties.length > 0 &&
+              allProperties.map((property) => newPropertyLayout(property))}
+            {this.state.dropDown === 'Single-Family' &&
+              singleFamily.length > 0 &&
+              singleFamily.map((singleFamily) =>
+                newPropertyLayout(singleFamily)
+              )}
+            {this.state.dropDown === 'Townhouse' &&
+              townhouses.length > 0 &&
+              townhouses.map((townhouse) => newPropertyLayout(townhouse))}
+            {this.state.dropDown === 'Condo' &&
+              condos.length > 0 &&
+              condos.map((condo) => newPropertyLayout(condo))}
+          </div>
+        </div>
       </div>
     );
   }

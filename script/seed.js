@@ -20,6 +20,7 @@ async function seed() {
       password: '123',
       firstName: 'Cody',
       lastName: 'Banks',
+      address: '471 Gladwell Street\nLivermore, CA 94550',
       imageURL: 'https://randomuser.me/api/portraits/men/75.jpg',
     }),
     User.create({
@@ -27,7 +28,7 @@ async function seed() {
       password: '123',
       firstName: 'Murphy',
       lastName: 'Brown',
-      address: '1810 Hiram Mountain\nNew Maechester, CA 31787-1942',
+      address: '3795 Arrowood Drive\nNorth Hollywood, CA 91605',
       imageURL: 'https://randomuser.me/api/portraits/men/50.jpg',
     }),
     User.create({
@@ -35,7 +36,7 @@ async function seed() {
       password: '123',
       firstName: 'Mathilde',
       lastName: 'Schneider',
-      address: '1810 Hiram Mountain\nNew Maechester, CA 31787-1942',
+      address: '1810 Hiram Mountain\nNew Maechester, CA 31787',
       imageURL: 'https://randomuser.me/api/portraits/women/65.jpg',
     }),
     User.create({
@@ -43,7 +44,7 @@ async function seed() {
       password: '123',
       firstName: 'Jaleel',
       lastName: 'Bode',
-      address: '632 Hortense Roads Suite 875\nHamillberg, OR 39790-6770',
+      address: '632 Hortense Roads Suite 875\nHamillberg, OR 39790',
       imageURL: 'https://randomuser.me/api/portraits/men/55.jpg',
     }),
     User.create({
@@ -60,7 +61,7 @@ async function seed() {
       firstName: 'Asia',
       lastName: 'Reilly',
       address:
-        '39546 Tressa Expressway Apt. 466\nNorth Katharinamouth, VT 45825-3766',
+        '39546 Tressa Expressway Apt. 466\nNorth Katharinamouth, VT 45825',
       imageURL: 'https://randomuser.me/api/portraits/women/60.jpg',
     }),
     User.create({
@@ -68,7 +69,7 @@ async function seed() {
       password: '123',
       firstName: 'Helene',
       lastName: 'Wuckert',
-      address: '127 Rosenbaum Squares Suite 658\nYostland, MS 64937-3476',
+      address: '127 Rosenbaum Squares Suite 658\nYostland, MS 64937',
       imageURL: 'https://randomuser.me/api/portraits/women/70.jpg',
     }),
     User.create({
@@ -76,7 +77,7 @@ async function seed() {
       password: '123',
       firstName: 'Krystina',
       lastName: 'Aufderhar',
-      address: '654 Gerhold Street Suite 556\nNorth Odieview, WV 15513-8263',
+      address: '654 Gerhold Street Suite 556\nNorth Odieview, WV 15513',
       imageURL: 'https://randomuser.me/api/portraits/women/40.jpg',
     }),
     User.create({
@@ -92,7 +93,7 @@ async function seed() {
       password: '123',
       firstName: 'Destiney',
       lastName: 'Franecki',
-      address: '602 Dickinson Estate Suite 842\nWest Nobleshire, OK 42744-7204',
+      address: '602 Dickinson Estate Suite 842\nWest Nobleshire, OK 42744',
       imageURL: 'https://randomuser.me/api/portraits/women/72.jpg',
     }),
   ]);
