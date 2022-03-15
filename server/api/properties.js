@@ -93,3 +93,24 @@ router.post('/:propertyId/lease/new/:userId', async (req, res, next) => {
     next(error);
   }
 });
+
+// DELETE /api/properties --> Deletes a single property and all associated leases based on Property ID.
+router.delete('/:propertyId/delete', async (req, res, next) => {
+  try {
+    await Lease.destroy({
+      where: {
+        propertyId: req.params.propertyId,
+      },
+    });
+
+    await Property.destroy({
+      where: {
+        id: req.params.propertyId,
+      },
+    });
+
+    res.json();
+  } catch (err) {
+    next(err);
+  }
+});
