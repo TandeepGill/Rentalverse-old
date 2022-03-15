@@ -40,12 +40,12 @@ class AllProperties extends React.Component {
 
     const { handleChange } = this;
 
-    //Fromats a number to a string with commas
+    //Formats a number to a string with commas
     const numToStringFormat = (num) => {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };
 
-    //Fromats an address to display on two lines
+    //Formats an address to display on two lines
     const addressFormat = (address) => {
       const splitAddress = address.split('\n');
       const addressLineOne = splitAddress[0];

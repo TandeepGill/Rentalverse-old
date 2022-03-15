@@ -37,8 +37,17 @@ class AllTenants extends React.Component {
 
     const { handleChange } = this;
 
+    //Formats a number to a string with commas
     const numFormat = (num) => {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    };
+
+    //Formats address by splitting into two parts
+    const addressFormat = (address) => {
+      const splitAddress = address.split('\n');
+      const addressLineOne = splitAddress[0];
+      const addressLineTwo = splitAddress[1];
+      return { addressLineOne, addressLineTwo };
     };
 
     const tenantLayout = (tenant) => (
@@ -51,7 +60,10 @@ class AllTenants extends React.Component {
           {`${tenant.firstName} ${tenant.lastName}`}
         </h3>
         <h4>
-          <span className='font-bold'>Address:</span> {tenant.property.address}
+          <span className='font-bold'>Address:</span>{' '}
+          {`${addressFormat(tenant.property.address).addressLineOne}, ${
+            addressFormat(tenant.property.address).addressLineTwo
+          }`}
         </h4>
         <h4>
           <span className='font-bold'>Lease Price:</span>{' '}
