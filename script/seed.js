@@ -158,7 +158,7 @@ async function seed() {
       imageURL:
         'https://media.istockphoto.com/photos/colonial-style-house-picture-id1284097677?b=1&k=20&m=1284097677&s=170667a&w=0&h=1A7BkHG5OU4WCN7m22OOhvVmU21q4UsYVJPrS1kgcKI=',
       type: 'Single-Family',
-      userId: 6,
+      userId: 1,
     }),
     Property.create({
       address: '654 Gerhold Street\nNorth Odieview, WV 15513',
@@ -168,7 +168,7 @@ async function seed() {
       imageURL:
         'https://media.istockphoto.com/photos/exterior-view-of-modern-apartment-building-picture-id1273552068?b=1&k=20&m=1273552068&s=170667a&w=0&h=WoG5kV_-mTtMerse0mFdODpzq5HBjhlqsF0TqBMHPhg=',
       type: 'Condo',
-      userId: 7,
+      userId: 1,
     }),
     Property.create({
       address: '602 Dickinson Estate\nWest Nobleshire, OK 42744',
@@ -178,7 +178,7 @@ async function seed() {
       imageURL:
         'https://media.istockphoto.com/photos/colorful-townhouses-in-calgary-alberta-canada-picture-id1279204567?b=1&k=20&m=1279204567&s=170667a&w=0&h=ZIvpBDjSKFmUNb7ul0Ssc-ZHbg8onKOPm1ajjrvq-08=',
       type: 'Townhouse',
-      userId: 8,
+      userId: 1,
     }),
     Property.create({
       address: '2963 Vincent Ways\nNew Alverta, LA 25139',
@@ -188,17 +188,17 @@ async function seed() {
       imageURL:
         'https://media.istockphoto.com/photos/new-contemporary-home-picture-id175587524?b=1&k=20&m=175587524&s=170667a&w=0&h=l0woDAaSwONgJ6xF_sFSZ8r9RG_qsT7E4TSVV2W13wU=',
       type: 'Single-Family',
-      userId: 9,
+      userId: 1,
     }),
     Property.create({
-      address: '5025 Erna Valley Suite 892\nWehnerhaven, GA 65976',
+      address: '5025 Erna Valley\nWehnerhaven, GA 65976',
       bedroom: 3,
       bathroom: 3,
       sqft: 2000,
       imageURL:
         'https://media.istockphoto.com/photos/row-of-townhouses-picture-id182218173?b=1&k=20&m=182218173&s=170667a&w=0&h=cRF14_uBNH8C61GbwTGl0NC9FsOz9ZdisCw6uj3kDmo=',
       type: 'Townhouse',
-      userId: 10,
+      userId: 1,
     }),
   ]);
 
@@ -262,7 +262,7 @@ async function seed() {
       price: '3200',
       isCurrentTenant: true,
       propertyId: 6,
-      userId: 6,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Ashton',
@@ -272,7 +272,7 @@ async function seed() {
       price: '1500',
       isCurrentTenant: true,
       propertyId: 7,
-      userId: 7,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Jacqueline',
@@ -282,7 +282,7 @@ async function seed() {
       price: '2300',
       isCurrentTenant: true,
       propertyId: 8,
-      userId: 8,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Jack',
@@ -290,9 +290,9 @@ async function seed() {
       startDate: '2021-04-27',
       endDate: '2022-04-26',
       price: '1700',
-      isCurrentTenant: true,
+      isCurrentTenant: false,
       propertyId: 9,
-      userId: 9,
+      userId: 1,
     }),
     Lease.create({
       firstName: 'Thomas',
@@ -300,9 +300,9 @@ async function seed() {
       startDate: '2021-06-25',
       endDate: '2022-06-24',
       price: '2800',
-      isCurrentTenant: true,
+      isCurrentTenant: false,
       propertyId: 10,
-      userId: 10,
+      userId: 1,
     }),
   ]);
 
