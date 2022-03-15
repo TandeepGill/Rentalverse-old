@@ -7,8 +7,8 @@ class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: '',
+      username: 'cody@gmail.com',
+      password: '123',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,6 +33,8 @@ class SignIn extends React.Component {
   render() {
     const { handleSubmit } = this;
     const { name, displayName, error } = this.props;
+    const { username, password } = this.state;
+
     return (
       <>
         <div className='flex flex-col mt-20 sm:px-6 lg:px-8 min-h-screen'>
@@ -65,6 +67,7 @@ class SignIn extends React.Component {
                     <input
                       name='username'
                       type='text'
+                      value={username}
                       placeholder='Email address'
                       required
                       className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
@@ -83,6 +86,7 @@ class SignIn extends React.Component {
                     <input
                       name='password'
                       type='password'
+                      value={password}
                       placeholder='Password'
                       required
                       className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
