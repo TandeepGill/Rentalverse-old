@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import {
   fetchSingleProperty,
   resetSingleProperty,
+  deleteSingleProperty,
 } from '../../store/singleProperty/singleProperty';
 import {
   fetchSingleLease,
@@ -28,6 +29,7 @@ class SingleProperty extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.deletePropertyHandler = this.deletePropertyHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
     this.editLeaseHandler = this.editLeaseHandler.bind(this);
@@ -75,6 +77,13 @@ class SingleProperty extends React.Component {
       },
       isEditLease: false,
     });
+  }
+
+  deletePropertyHandler() {
+    const propertyId = this.props.property.id;
+    this.props.deleteSingleProperty(propertyId);
+
+    this.props.history.push('/properties');
   }
 
   handleEditSubmit(evt) {
@@ -139,6 +148,7 @@ class SingleProperty extends React.Component {
 
     const { isEditLease } = this.state;
     const {
+      deletePropertyHandler,
       handleSubmit,
       handleEditSubmit,
       handleChange,
@@ -261,6 +271,15 @@ class SingleProperty extends React.Component {
                   <span className='font-bold'>Size:</span>{' '}
                   {numToStringFormat(property.sqft)} sqft
                 </h4>
+                <div className='flex justify-start my-4 w-80'>
+                  <button
+                    type='button'
+                    onClick={deletePropertyHandler}
+                    className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer'
+                  >
+                    Delete Property
+                  </button>
+                </div>
               </div>
             </div>
           )}
@@ -298,14 +317,14 @@ class SingleProperty extends React.Component {
               </div>
               <div className='flex items-center mx-6 justify-between w-60'>
                 <button
-                  type='submit'
+                  type='button'
                   onClick={editLeaseHandler}
                   className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-5 py-2 text-center w-28 cursor-pointer'
                 >
                   Edit Lease
                 </button>
                 <button
-                  type='submit'
+                  type='button'
                   onClick={endLeaseHandler}
                   className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28 cursor-pointer'
                 >
@@ -331,6 +350,8 @@ const mapDispatchToProps = (dispatch) => ({
   getSingleLease: (propertyId) => dispatch(fetchSingleLease(propertyId)),
   resetSingleProperty: () => dispatch(resetSingleProperty()),
   resetSingleLease: () => dispatch(resetSingleLease()),
+  deleteSingleProperty: (propertyId) =>
+    dispatch(deleteSingleProperty(propertyId)),
   addNewLease: (tenant, { propertyId, userId }) =>
     dispatch(addNewLease(tenant, { propertyId, userId })),
   editCurrentLease: (lease, leaseId) =>
