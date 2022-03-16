@@ -31,7 +31,7 @@ class SignIn extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this;
+    const { handleSubmit, handleChange } = this;
     const { name, displayName, error } = this.props;
     const { username, password } = this.state;
 
@@ -68,6 +68,7 @@ class SignIn extends React.Component {
                       name='username'
                       type='text'
                       value={username}
+                      onChange={handleChange}
                       placeholder='Email address'
                       required
                       className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm'
@@ -87,6 +88,7 @@ class SignIn extends React.Component {
                       name='password'
                       type='password'
                       value={password}
+                      onChange={handleChange}
                       placeholder='Password'
                       required
                       className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm'

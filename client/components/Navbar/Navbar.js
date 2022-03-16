@@ -1,4 +1,3 @@
-// import React from 'react';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -34,6 +33,12 @@ const Navbar = ({ handleClick, isLoggedIn, user }) => (
               className='text-base font-medium hover:text-orange-600'
             >
               Add Property
+            </Link>
+            <Link
+              to='/profile'
+              className='text-base font-medium hover:text-orange-600'
+            >
+              User Profile
             </Link>
           </div>
           <div className='flex items-center md:ml-12'>

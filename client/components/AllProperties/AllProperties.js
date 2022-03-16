@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { fetchAllProperties } from '../../store/allProperties/allProperties';
+import { fetchAllTenants } from '../../store/allTenants/allTenants';
 
 class AllProperties extends React.Component {
   constructor() {
@@ -15,6 +16,7 @@ class AllProperties extends React.Component {
   componentDidMount() {
     try {
       this.props.getAllProperties(this.props.user.id);
+      this.props.getAllTenants(this.props.user.id);
     } catch (error) {
       console.error(error);
     }
@@ -147,10 +149,12 @@ class AllProperties extends React.Component {
 const mapStateToProps = (state) => ({
   user: state.auth,
   properties: state.properties,
+  tenants: state.tenants,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getAllProperties: (userId) => dispatch(fetchAllProperties(userId)),
+  getAllTenants: (userId) => dispatch(fetchAllTenants(userId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllProperties);
