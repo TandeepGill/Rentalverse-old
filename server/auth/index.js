@@ -27,7 +27,19 @@ router.post('/signup', async (req, res, next) => {
 
 router.get('/me', async (req, res, next) => {
   try {
-    res.send(await User.findByToken(req.headers.authorization));
+    const user = await User.findByToken(req.headers.authorization);
+    const { id, imageURL, firstName, lastName, username, createdAt } = user;
+
+    const safeUserData = {
+      id,
+      imageURL,
+      firstName,
+      lastName,
+      username,
+      createdAt,
+    };
+
+    res.send({ ...safeUserData });
   } catch (ex) {
     next(ex);
   }
