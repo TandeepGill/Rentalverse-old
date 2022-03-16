@@ -32,12 +32,12 @@ This web app utilizes the following technologies (not an inclusive list):
 
 # Set-Up
 
-1. Setup the postgreSQL database by running the following in the command line -- createdb rentalverse
-2. Clone this repo to your local environment -- git clone < git repository >
+1. Setup the postgreSQL database by running the following in the command line -- `createdb rentalverse`
+2. Clone this repo to your local environment -- `git clone < git repository >`
 3. cd (change directory) into the repo
-4. run 'npm install' into your command line
-5. run 'npm run seed' into your command line
-6. run 'npm run start:dev' into your command line
+4. run `npm install` into your command line
+5. run `npm run seed` into your command line
+6. run `npm run start:dev` into your command line
 
 Sync and seed your database by running `npm run seed`. In the project directory run `npm run start:dev` and visit http://localhost:8080/ in your web browser to view the project.
 
