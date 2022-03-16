@@ -1,77 +1,56 @@
-# FS-App-Template
+# Rentalverse
 
-## Setup
+Rentalverse is a full stack web application designed and developed to help individuals and small real estate investment firms manage their rental properties. This is an individual project that I created from the ground up. The inspiration for this project came from my knowledge gained in my previous work experiences. This is an ongoing project and I will be working on building out more features.
 
-To use this as boilerplate, you'll need to take the following steps:
+# Features
 
-* Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+A user can:
 
-* Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+- Add a property (incl. type, address, bedrooms, bathrooms, sqft, and image)
+- Add a tenant and lease details associated with a property (incl. name, price, start date, end date)
+- Filter properties by type (All, Single-Family, Townhouse, Condo)
+- Filter tenants (All, Current, Previous) and view the associated property, current or previous
+- Edit a lease and update the rent amount and update the start and end dates to reflect a new lease period
+- End a lease when a tenant moves out and marks the tenant as a previous tenant
+- Delete a property and all associated data (incl. tenant and lease data) if the user no longer owns the property
+- Visit a user profile page and see details about total properties, current tenants and previous tenants
+- ...More Features To Come!
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
+# Tech Stack
 
-## Customize
+This web app employs the following technologies(not inclusive):
 
-Now that you've got the code, follow these steps to get acclimated:
+- React - class based components
+- React Router - declarative routing
+- Redux - global state management
+- Axios - client side requests
+- Express - server and back end API endpoints
+- PostgreSQL - database
+- Sequelize - object relational mapper (ORM) for database querying
+- Bcrypt and JWT - authentication and authorization
 
-* Update project name and description in `package.json`
-* `npm install`
-* Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-* These commands will create both your **development** and **test** databases
+# Set-Up
 
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
+1. Setup the postgreSQL database by running the following in the command line -- createdb rentalverse
+2. Clone this repo to your local environment -- git clone < git repository >
+3. cd (change directory) into the repo
+4. run 'npm install' into your command line
+5. run 'npm run seed' into your command line
+6. run 'npm run start:dev' into your command line
 
-* By default, running `npm test` will use your test database, while
-  regular development uses development database
+Sync and seed your database by running `npm run seed`. In the project directory run `npm run start:dev` and visit 'http://localhost:8080/' in your web browser to view the project locally!
 
-## Start
+# What's Next?
 
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
+I need to update the database schema to allow for more more features to be added, such as the ability of a user to track maintenance requests and monthly rent payments. The front end styling needs to be improved, along with accessibility. I will be working through these different features and tracking upcoming features in the Nice-To-Have section below.
 
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
+# Nice to have features(not inclusive):
 
+- Allow a user to input maintenance requests by property and track progress as maintenance is carried out; i.e. Pending, In Progress, Completed
+- Allow a user to keep track of rent payments and when they were made
+- Add validations and prompts on the front end to visually inform a user
+- Allow a user to to edit their account information; i.e. avatar, email, password etc.
 
-### Heroku
+# Sample Images/GIFs:
 
-1.  Set up the [Heroku command line tools][heroku-cli]
-2.  `heroku login`
-3.  Add a git remote for heroku:
-
-[heroku-cli]: https://devcenter.heroku.com/articles/heroku-cli
-
-* **If you are creating a new app...**
-
-  1.  `heroku create` or `heroku create your-app-name` if you have a
-      name in mind.
-  2.  `heroku config:set JWT=<your secret here!>` to set a secret for JWT signing
-
-Database Setup
-
-  3.  `heroku addons:create heroku-postgresql:hobby-dev` to add
-      ("provision") a postgres database to your heroku dyno (This creates your production database)
-
-  4.  `heroku config:set SEED=true` to get heroku to sync and seed your database
-
-  5.   note everytime your app restarts, the database tables will be dropped and re-created. To avoid this you can `config:unset SEED`
-
-
-* **If you already have a Heroku app...**
-
-  1.  `heroku git:remote your-app-name` You'll need to be a
-      collaborator on the app.
-
-
-Now, you should be deployed!
+- Coming Soon!
