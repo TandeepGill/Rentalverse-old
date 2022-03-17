@@ -1,6 +1,6 @@
 import React from 'react';
 
-const navigation = [
+const social = [
   {
     name: 'Facebook',
     href: 'https://www.facebook.com/',
@@ -54,9 +54,9 @@ const navigation = [
 const Footer = () => {
   return (
     <footer className='bg-white border-t border-gray-200 bottom-0 w-full'>
-      <div className='max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8'>
+      <div className='max-w-7xl mx-auto py-8 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8'>
         <div className='flex justify-center space-x-6 md:order-2'>
-          {navigation.map((item) => (
+          {social.map((item) => (
             <a
               key={item.name}
               href={item.href}
@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
         <div className='mt-8 md:mt-0 md:order-1'>
           <p className='text-center text-base text-gray-400'>
-            &copy; 2021{' '}
+            &copy; 2022{' '}
             <span className='tracking-wider font-bold text-orange-600'>
               RENTAL<span className='font-normal text-slate-700'>VERSE</span>
             </span>
