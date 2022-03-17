@@ -58,7 +58,7 @@ class AllProperties extends React.Component {
     const newPropertyLayout = (property) => (
       <div
         key={property.id}
-        className='flex flex-col w-1/4 border-2 p-2 mr-6 mb-6 border-orange-300 rounded-md items-center'
+        className='flex flex-col w-72 border-2 p-2 m-auto lg:m-2 mb-6 border-orange-300 rounded-md items-center'
       >
         <Link to={`/properties/${property.id}`}>
           <div className='m-0.5'>
@@ -101,16 +101,16 @@ class AllProperties extends React.Component {
 
     return (
       <div>
-        <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'>
-          <div className='flex items-center mb-4'>
-            <h1 className='text-2xl font-bold underline text-orange-600'>
+        <div className='w-full mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8 min-h-screen'>
+          <div className='flex flex-col lg:flex-row items-center mb-4 justify-center'>
+            <h1 className='text-2xl font-bold underline text-orange-600 mb-4 lg:mb-0'>
               {this.state.dropDown === 'All' && 'ALL PROPERTIES'}
               {this.state.dropDown === 'Single-Family' &&
                 'SINGLE-FAMILY PROPERTIES'}
               {this.state.dropDown === 'Townhouse' && 'TOWNHOUSE PROPERTIES'}
               {this.state.dropDown === 'Condo' && 'CONDO PROPERTIES'}
             </h1>
-            <div className='flex ml-8 justify-center items-center'>
+            <div className='flex mb-4 lg:mb-0 lg:ml-8 justify-center items-center'>
               <label htmlFor='properties'>Filter Properties:</label>
               <select
                 name='properties'
@@ -124,21 +124,23 @@ class AllProperties extends React.Component {
               </select>
             </div>
           </div>
-          <div className='flex flex-wrap'>
-            {this.state.dropDown === 'All' &&
-              allProperties.length > 0 &&
-              allProperties.map((property) => newPropertyLayout(property))}
-            {this.state.dropDown === 'Single-Family' &&
-              singleFamily.length > 0 &&
-              singleFamily.map((singleFamily) =>
-                newPropertyLayout(singleFamily)
-              )}
-            {this.state.dropDown === 'Townhouse' &&
-              townhouses.length > 0 &&
-              townhouses.map((townhouse) => newPropertyLayout(townhouse))}
-            {this.state.dropDown === 'Condo' &&
-              condos.length > 0 &&
-              condos.map((condo) => newPropertyLayout(condo))}
+          <div className='flex flex-wrap justify-center w-full'>
+            <div className='w-full flex flex-wrap justify-start lg:mx-40'>
+              {this.state.dropDown === 'All' &&
+                allProperties.length > 0 &&
+                allProperties.map((property) => newPropertyLayout(property))}
+              {this.state.dropDown === 'Single-Family' &&
+                singleFamily.length > 0 &&
+                singleFamily.map((singleFamily) =>
+                  newPropertyLayout(singleFamily)
+                )}
+              {this.state.dropDown === 'Townhouse' &&
+                townhouses.length > 0 &&
+                townhouses.map((townhouse) => newPropertyLayout(townhouse))}
+              {this.state.dropDown === 'Condo' &&
+                condos.length > 0 &&
+                condos.map((condo) => newPropertyLayout(condo))}
+            </div>
           </div>
         </div>
       </div>
