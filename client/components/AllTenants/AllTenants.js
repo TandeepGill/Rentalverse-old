@@ -53,7 +53,7 @@ class AllTenants extends React.Component {
     const tenantLayout = (tenant) => (
       <div
         key={tenant.id}
-        className='flex flex-col w-2/5 border-2 p-2 mr-6 mb-6 border-orange-300 rounded-md'
+        className='flex flex-col w-72 lg:w-1/3 border-2 p-2 m-auto lg:m-2 mb-6 border-orange-300 rounded-md items-start justify-center'
       >
         <h3>
           <span className='font-bold'>Name:</span>{' '}
@@ -72,12 +72,14 @@ class AllTenants extends React.Component {
         <h4>
           <span className='font-bold'>Start Date:</span> {tenant.startDate}
         </h4>
-        <div className='flex justify-between items-between'>
+        <div className='flex flex-col lg:flex-row justify-between items-between'>
           <h4>
             <span className='font-bold'>End Date:</span> {tenant.endDate}
           </h4>
+        </div>
+        <div className='w-full lg: ml-auto lg:w-fit xl:w-5/12 lg:text-right'>
           <Link to={`/properties/${tenant.property.id}`}>
-            <div className='mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
+            <div className='w-full mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
               Go To Property
             </div>
           </Link>
@@ -87,15 +89,15 @@ class AllTenants extends React.Component {
 
     return (
       <div>
-        <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8 min-h-screen'>
-          <div className='flex items-center mb-4'>
-            <h1 className='text-2xl font-bold underline text-orange-600'>
+        <div className='w-full mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8 min-h-screen'>
+          <div className='flex flex-col lg:flex-row items-center mb-4 justify-center'>
+            <h1 className='text-2xl font-bold underline text-orange-600 mb-4 lg:mb-0'>
               {this.state.dropDown === 'all' && 'ALL TENANTS'}
               {this.state.dropDown === 'current' && 'CURRENT TENANTS'}
               {this.state.dropDown === 'previous' && 'PREVIOUS TENANTS'}
             </h1>
-            <div className='flex ml-8 justify-center items-center'>
-              <label htmlFor='tenants'>Filter Tenants:</label>
+            <div className='flex mb-4 lg:mb-0 lg:ml-8 justify-center items-center'>
+              <label htmlFor='properties'>Filter Tenants:</label>
               <select
                 name='tenants'
                 onChange={handleChange}
@@ -113,16 +115,18 @@ class AllTenants extends React.Component {
               </select>
             </div>
           </div>
-          <div className='flex flex-wrap'>
-            {this.state.dropDown === 'all' &&
-              allTenants.length > 0 &&
-              allTenants.map((tenant) => tenantLayout(tenant))}
-            {this.state.dropDown === 'current' &&
-              currentTenants.length > 0 &&
-              currentTenants.map((tenant) => tenantLayout(tenant))}
-            {this.state.dropDown === 'previous' &&
-              previousTenants.length > 0 &&
-              previousTenants.map((tenant) => tenantLayout(tenant))}
+          <div className='flex flex-wrap justify-center w-full'>
+            <div className='w-full flex flex-wrap justify-center lg:mx-40'>
+              {this.state.dropDown === 'all' &&
+                allTenants.length > 0 &&
+                allTenants.map((tenant) => tenantLayout(tenant))}
+              {this.state.dropDown === 'current' &&
+                currentTenants.length > 0 &&
+                currentTenants.map((tenant) => tenantLayout(tenant))}
+              {this.state.dropDown === 'previous' &&
+                previousTenants.length > 0 &&
+                previousTenants.map((tenant) => tenantLayout(tenant))}
+            </div>
           </div>
         </div>
       </div>
