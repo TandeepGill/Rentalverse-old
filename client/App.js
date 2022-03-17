@@ -6,11 +6,11 @@ import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
-    <div className='text-slate-700'>
+    <>
       <Navbar />
       <Routes />
       <Footer />
-    </div>
+    </>
   );
 };
 

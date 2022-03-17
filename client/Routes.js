@@ -24,7 +24,7 @@ class Routes extends Component {
     const { isLoggedIn } = this.props;
 
     return (
-      <div>
+      <div className='static w-full overflow-hidden'>
         {isLoggedIn ? (
           <Switch>
             <Route exact path='/properties' component={AllProperties} />
@@ -43,6 +43,7 @@ class Routes extends Component {
             <Route path='/' exact component={SignIn} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Redirect to='/' />
           </Switch>
         )}
       </div>
