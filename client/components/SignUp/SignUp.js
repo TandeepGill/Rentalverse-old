@@ -37,10 +37,10 @@ class SignUp extends React.Component {
     const { name, displayName, error } = this.props;
     return (
       <>
-        <div className='flex flex-col mt-20 sm:px-6 lg:px-8 min-h-screen'>
+        <div className='flex flex-col mt-20 mx-4 lg:mx-auto sm:px-6 lg:px-8 min-h-screen'>
           <div className='sm:mx-auto sm:w-full sm:max-w-md'>
             <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-700'>
-              Sign up for a free account
+              Sign up for an account
             </h2>
             <p className='mt-2 text-center text-sm text-gray-600'>
               Or if you already have an account{' '}
