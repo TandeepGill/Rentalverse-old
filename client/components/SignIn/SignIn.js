@@ -7,7 +7,7 @@ class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: 'cody@gmail.com',
+      username: 'demo@gmail.com',
       password: '123',
     };
     this.handleChange = this.handleChange.bind(this);
