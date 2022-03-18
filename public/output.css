@@ -870,14 +870,6 @@ select {
   width: 100%;
 }
 
-.w-11\/12 {
-  width: 91.666667%;
-}
-
-.w-10\/12 {
-  width: 83.333333%;
-}
-
 .w-44 {
   width: 11rem;
 }
@@ -1406,6 +1398,10 @@ select {
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:w-3\/5 {
+    width: 60%;
   }
 
   .md\:items-center {
