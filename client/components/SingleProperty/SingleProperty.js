@@ -166,8 +166,11 @@ class SingleProperty extends React.Component {
         onSubmit={typeOfSubmit}
         className='flex flex-col items-start justify-center'
       >
-        <div className='flex mb-4 w-80 justify-between'>
-          <label htmlFor='firstName' className='font-semibold mr-4'>
+        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+          <label
+            htmlFor='firstName'
+            className='font-semibold mr-4 mb-2 lg:mb-0'
+          >
             First Name:
           </label>
           <input
@@ -175,11 +178,11 @@ class SingleProperty extends React.Component {
             onChange={handleChange}
             value={firstName}
             placeholder='First Name'
-            className='border border-orange-300 rounded px-2 w-52'
+            className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex mb-4 w-80 justify-between'>
-          <label htmlFor='lastName' className='font-semibold mr-4'>
+        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+          <label htmlFor='lastName' className='font-semibold mr-4 mb-2 lg:mb-0'>
             Last Name:
           </label>
           <input
@@ -187,11 +190,14 @@ class SingleProperty extends React.Component {
             onChange={handleChange}
             value={lastName}
             placeholder='Last Name'
-            className='border border-orange-300 rounded px-2 w-52'
+            className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex mb-4 w-80 justify-between items-center'>
-          <label htmlFor='startDate' className='font-semibold mr-4'>
+        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+          <label
+            htmlFor='startDate'
+            className='font-semibold mr-4 mb-2 lg:mb-0'
+          >
             Start Date:
           </label>
           <input
@@ -200,11 +206,11 @@ class SingleProperty extends React.Component {
             onChange={handleChange}
             value={startDate}
             placeholder='Start Date'
-            className='border border-orange-300 rounded px-2 w-52'
+            className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex mb-4 w-80 justify-between items-center'>
-          <label htmlFor='endDate' className='font-semibold mr-4'>
+        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+          <label htmlFor='endDate' className='font-semibold mr-4 mb-2 lg:mb-0'>
             End Date:
           </label>
           <input
@@ -213,11 +219,11 @@ class SingleProperty extends React.Component {
             onChange={handleChange}
             value={endDate}
             placeholder='End Date'
-            className='border border-orange-300 rounded px-2 w-52'
+            className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex mb-4 w-80 justify-between'>
-          <label htmlFor='price' className='font-semibold mr-4'>
+        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+          <label htmlFor='price' className='font-semibold mr-4 mb-2 lg:mb-0'>
             Price:
           </label>
           <input
@@ -225,13 +231,13 @@ class SingleProperty extends React.Component {
             onChange={handleChange}
             value={price}
             placeholder='Lease Price'
-            className='border border-orange-300 rounded px-2 w-52'
+            className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex justify-end mb-4 w-80'>
+        <div className='flex justify-end my-2 w-80 lg:w-96'>
           <button
             type='submit'
-            className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer'
+            className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer w-full lg:w-64'
           >
             Submit
           </button>
@@ -241,50 +247,53 @@ class SingleProperty extends React.Component {
 
     return (
       <div className='min-h-screen'>
-        <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
-          <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
-            PROPERTY DETAILS
-          </h1>
-          {Object.keys(property).length > 0 && (
-            <div className='flex'>
-              <img
-                className='h-60 rounded-md mr-4'
-                src={property.imageURL}
-                alt='Exterior of property'
-              />
-              <div className='flex flex-col justify-center gap-y-2'>
-                <h3>
-                  <span className='font-bold'>Type:</span> {property.type}
-                </h3>
-                <h4>
-                  <span className='font-bold'>Address:</span> {property.address}
-                </h4>
-                <h4>
-                  <span className='font-bold'>Bedrooms:</span>{' '}
-                  {property.bedroom}
-                </h4>
-                <h4>
-                  <span className='font-bold'>Bathrooms:</span>{' '}
-                  {property.bathroom}
-                </h4>
-                <h4>
-                  <span className='font-bold'>Size:</span>{' '}
-                  {numToStringFormat(property.sqft)} sqft
-                </h4>
-                <div className='flex justify-start my-4 w-80'>
-                  <button
-                    type='button'
-                    onClick={deletePropertyHandler}
-                    className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer'
-                  >
-                    Delete Property
-                  </button>
+        <div className='flex w-full mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8'>
+          <div className='flex mx-auto flex-col items-center mb-4 justify-center'>
+            <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
+              PROPERTY DETAILS
+            </h1>
+            {Object.keys(property).length > 0 && (
+              <div className='flex flex-col lg:flex-row'>
+                <img
+                  className='h-60 rounded-md mr-4'
+                  src={property.imageURL}
+                  alt='Exterior of property'
+                />
+                <div className='flex flex-col justify-center gap-y-3 mt-4 lg:mt-0'>
+                  <h3>
+                    <span className='font-bold'>Type:</span> {property.type}
+                  </h3>
+                  <h4>
+                    <span className='font-bold'>Address:</span>{' '}
+                    {property.address}
+                  </h4>
+                  <h4>
+                    <span className='font-bold'>Bedrooms:</span>{' '}
+                    {property.bedroom}
+                  </h4>
+                  <h4>
+                    <span className='font-bold'>Bathrooms:</span>{' '}
+                    {property.bathroom}
+                  </h4>
+                  <h4>
+                    <span className='font-bold'>Size:</span>{' '}
+                    {numToStringFormat(property.sqft)} sqft
+                  </h4>
+                  <div className='flex justify-start my-4 lg:w-80 w-full'>
+                    <button
+                      type='button'
+                      onClick={deletePropertyHandler}
+                      className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer w-full lg:w-fit'
+                    >
+                      Delete Property
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
-        <div className='max-w-2xl mx-auto mt-12 mb-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+        <div className='flex w-full mx-auto flex-col items-center mb-4 justify-center mt-4 lg:mt-12'>
           <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
             LEASE DETAILS
           </h1>
@@ -297,36 +306,36 @@ class SingleProperty extends React.Component {
           )}
 
           {!isEditLease && Object.keys(lease).length > 1 && (
-            <div className='flex items-center'>
-              <div className='flex gap-x-4'>
-                <h3>
+            <div className='flex flex-col lg:flex-row items-center'>
+              <div className='flex flex-col lg:flex-row gap-x-4'>
+                <h3 className='my-2 lg:my-0'>
                   <span className='font-bold'>Tenant Name:</span>{' '}
                   {`${lease.firstName} ${lease.lastName}`}
                 </h3>
-                <h4>
+                <h4 className='my-2 lg:my-0'>
                   <span className='font-bold'>Price:</span>{' '}
                   {`$${numToStringFormat(lease.price)}`}
                 </h4>
-                <h4>
+                <h4 className='my-2 lg:my-0'>
                   <span className='font-bold'>Start Date:</span>{' '}
                   {lease.startDate}
                 </h4>
-                <h4>
+                <h4 className='my-2 lg:my-0'>
                   <span className='font-bold'>End Date:</span> {lease.endDate}
                 </h4>
               </div>
-              <div className='flex items-center mx-6 justify-between w-60'>
+              <div className='flex flex-col lg:flex-row items-center my-2 lg:my-0 mx-6 justify-between w-60'>
                 <button
                   type='button'
                   onClick={editLeaseHandler}
-                  className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-5 py-2 text-center w-28 cursor-pointer'
+                  className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-5 py-2 mx-auto text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
                 >
                   Edit Lease
                 </button>
                 <button
                   type='button'
                   onClick={endLeaseHandler}
-                  className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 text-center w-28 cursor-pointer'
+                  className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 mx-auto text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
                 >
                   End Lease
                 </button>
