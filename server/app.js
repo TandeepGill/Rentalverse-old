@@ -1,12 +1,8 @@
 const path = require('path');
 const express = require('express');
-const enforce = require('express-sslify');
 const morgan = require('morgan');
 const app = express();
 module.exports = app;
-
-// redirecting HTTP to HTTPS
-app.use(enforce.HTTPS());
 
 // logging middleware
 app.use(morgan('dev'));
