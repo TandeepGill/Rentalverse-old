@@ -64,14 +64,14 @@ class AddNewProperty extends React.Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div className='w-11/12 lg:w-3/5 xl:w-2/5 mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8 min-h-screen'>
+      <div className='md:w-3/5 lg:w-3/5 xl:w-2/5 mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8 min-h-screen'>
         <div className='flex flex-col items-center mb-4 justify-center mx-auto w-full'>
           <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
             ADD A NEW PROPERTY
           </h1>
           <form
             onSubmit={handleSubmit}
-            className='flex flex-col items-start justify-center w-10/12'
+            className='flex flex-col items-start justify-center w-full'
           >
             <div className='flex flex-col lg:flex-row mb-4 w-full justify-between'>
               <label htmlFor='type' className='font-semibold my-2 mr-6 w-44'>
