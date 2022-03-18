@@ -830,6 +830,10 @@ select {
   display: none;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-7 {
   height: 1.75rem;
 }
@@ -848,10 +852,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-10 {
-  height: 2.5rem;
 }
 
 .h-60 {
@@ -908,6 +908,10 @@ select {
 
 .w-52 {
   width: 13rem;
+}
+
+.w-10\/12 {
+  width: 83.333333%;
 }
 
 .max-w-7xl {
