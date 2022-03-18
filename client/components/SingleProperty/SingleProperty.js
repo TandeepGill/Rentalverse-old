@@ -164,12 +164,12 @@ class SingleProperty extends React.Component {
     const newLeaseForm = (typeOfSubmit) => (
       <form
         onSubmit={typeOfSubmit}
-        className='flex flex-col items-start justify-center'
+        className='flex flex-col items-center justify-center w-full'
       >
-        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+        <div className='flex flex-col lg:flex-row mb-4 w-full lg:w-96 justify-between lg:items-center'>
           <label
             htmlFor='firstName'
-            className='font-semibold mr-4 mb-2 lg:mb-0'
+            className='font-semibold mr-4 mb-2 lg:mb-0 px-1'
           >
             First Name:
           </label>
@@ -181,7 +181,7 @@ class SingleProperty extends React.Component {
             className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+        <div className='flex flex-col lg:flex-row mb-4 w-full lg:w-96 justify-between lg:items-center'>
           <label htmlFor='lastName' className='font-semibold mr-4 mb-2 lg:mb-0'>
             Last Name:
           </label>
@@ -193,7 +193,7 @@ class SingleProperty extends React.Component {
             className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+        <div className='flex flex-col lg:flex-row mb-4 w-full lg:w-96 justify-between lg:items-center'>
           <label
             htmlFor='startDate'
             className='font-semibold mr-4 mb-2 lg:mb-0'
@@ -209,7 +209,7 @@ class SingleProperty extends React.Component {
             className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+        <div className='flex flex-col lg:flex-row mb-4 w-full lg:w-96 justify-between lg:items-center'>
           <label htmlFor='endDate' className='font-semibold mr-4 mb-2 lg:mb-0'>
             End Date:
           </label>
@@ -222,7 +222,7 @@ class SingleProperty extends React.Component {
             className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex flex-col lg:flex-row mb-4 w-80 lg:w-96 justify-between lg:items-center'>
+        <div className='flex flex-col lg:flex-row mb-4 w-full lg:w-96 justify-between lg:items-center'>
           <label htmlFor='price' className='font-semibold mr-4 mb-2 lg:mb-0'>
             Price:
           </label>
@@ -234,7 +234,7 @@ class SingleProperty extends React.Component {
             className='border border-orange-300 rounded px-2 h-10 w-full lg:w-64'
           />
         </div>
-        <div className='flex justify-end my-2 w-80 lg:w-96'>
+        <div className='flex justify-end my-2 w-full lg:w-96'>
           <button
             type='submit'
             className='text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2 text-center cursor-pointer w-full lg:w-64'
@@ -253,9 +253,9 @@ class SingleProperty extends React.Component {
               PROPERTY DETAILS
             </h1>
             {Object.keys(property).length > 0 && (
-              <div className='flex flex-col lg:flex-row'>
+              <div className='flex flex-col lg:flex-row items-center'>
                 <img
-                  className='h-60 rounded-md mr-4'
+                  className='h-60 rounded-md lg:mr-4'
                   src={property.imageURL}
                   alt='Exterior of property'
                 />
@@ -293,55 +293,59 @@ class SingleProperty extends React.Component {
             )}
           </div>
         </div>
-        <div className='flex w-full mx-auto flex-col items-center mb-4 justify-center mt-4 lg:mt-12'>
-          <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
-            LEASE DETAILS
-          </h1>
-          {Object.keys(lease).length === 0 && (
-            <div className='flex'>{newLeaseForm(handleSubmit)}</div>
-          )}
+        <div className='flex mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8'>
+          <div className='flex flex-col items-center mb-4 justify-center mt-4 lg:mt-12 w-full'>
+            <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
+              LEASE DETAILS
+            </h1>
+            {Object.keys(lease).length === 0 && (
+              <div className='flex w-full'>{newLeaseForm(handleSubmit)}</div>
+            )}
 
-          {isEditLease && (
-            <div className='flex'>{newLeaseForm(handleEditSubmit)}</div>
-          )}
+            {isEditLease && (
+              <div className='flex w-full'>
+                {newLeaseForm(handleEditSubmit)}
+              </div>
+            )}
 
-          {!isEditLease && Object.keys(lease).length > 1 && (
-            <div className='flex flex-col lg:flex-row items-center'>
-              <div className='flex flex-col lg:flex-row gap-x-4'>
-                <h3 className='my-2 lg:my-0'>
-                  <span className='font-bold'>Tenant Name:</span>{' '}
-                  {`${lease.firstName} ${lease.lastName}`}
-                </h3>
-                <h4 className='my-2 lg:my-0'>
-                  <span className='font-bold'>Price:</span>{' '}
-                  {`$${numToStringFormat(lease.price)}`}
-                </h4>
-                <h4 className='my-2 lg:my-0'>
-                  <span className='font-bold'>Start Date:</span>{' '}
-                  {lease.startDate}
-                </h4>
-                <h4 className='my-2 lg:my-0'>
-                  <span className='font-bold'>End Date:</span> {lease.endDate}
-                </h4>
+            {!isEditLease && Object.keys(lease).length > 1 && (
+              <div className='flex flex-col lg:flex-row items-center'>
+                <div className='flex flex-col lg:flex-row gap-x-4'>
+                  <h3 className='my-2 lg:my-0'>
+                    <span className='font-bold'>Tenant Name:</span>{' '}
+                    {`${lease.firstName} ${lease.lastName}`}
+                  </h3>
+                  <h4 className='my-2 lg:my-0'>
+                    <span className='font-bold'>Price:</span>{' '}
+                    {`$${numToStringFormat(lease.price)}`}
+                  </h4>
+                  <h4 className='my-2 lg:my-0'>
+                    <span className='font-bold'>Start Date:</span>{' '}
+                    {lease.startDate}
+                  </h4>
+                  <h4 className='my-2 lg:my-0'>
+                    <span className='font-bold'>End Date:</span> {lease.endDate}
+                  </h4>
+                </div>
+                <div className='flex flex-col lg:flex-row items-center my-2 lg:my-0 mx-6 justify-between w-60'>
+                  <button
+                    type='button'
+                    onClick={editLeaseHandler}
+                    className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-5 py-2 mx-auto text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
+                  >
+                    Edit Lease
+                  </button>
+                  <button
+                    type='button'
+                    onClick={endLeaseHandler}
+                    className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 mx-auto text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
+                  >
+                    End Lease
+                  </button>
+                </div>
               </div>
-              <div className='flex flex-col lg:flex-row items-center my-2 lg:my-0 mx-6 justify-between w-60'>
-                <button
-                  type='button'
-                  onClick={editLeaseHandler}
-                  className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-5 py-2 mx-auto text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
-                >
-                  Edit Lease
-                </button>
-                <button
-                  type='button'
-                  onClick={endLeaseHandler}
-                  className='text-white bg-red-600 hover:bg-red-700 font-medium rounded-lg text-sm px-5 py-2 mx-auto text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
-                >
-                  End Lease
-                </button>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     );
