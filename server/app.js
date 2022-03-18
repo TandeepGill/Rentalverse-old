@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
-const secure = require('ssl-express-www');
+const enforce = require('express-sslify');
 const morgan = require('morgan');
 const app = express();
 module.exports = app;
 
-// redirecting HTTP to HTTPS, forces SSL when HTTP and removes www and trailing slash on domain
-app.use(secure);
+// redirecting HTTP to HTTPS
+app.use(enforce.HTTPS());
 
 // logging middleware
 app.use(morgan('dev'));
