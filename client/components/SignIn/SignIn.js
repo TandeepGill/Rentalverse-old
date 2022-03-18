@@ -37,7 +37,7 @@ class SignIn extends React.Component {
 
     return (
       <>
-        <div className='flex flex-col mt-20 sm:px-6 lg:px-8 min-h-screen'>
+        <div className='flex flex-col mt-20 mx-4 lg:mx-auto sm:px-6 lg:px-8 min-h-screen'>
           <div className='sm:mx-auto sm:w-full sm:max-w-md'>
             <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-700'>
               Sign in to your account
