@@ -92,7 +92,7 @@ class SingleProperty extends React.Component {
     const leaseDetails = this.state.leaseDetails;
 
     //Removes all non-numeric characters from price
-    leaseDetails.price = leaseDetails.price.replace(/\D/g, '');
+    leaseDetails.price = leaseDetails.price.toString().replace(/\D/g, '');
 
     const { firstName, lastName, startDate, endDate, price } = leaseDetails;
 
