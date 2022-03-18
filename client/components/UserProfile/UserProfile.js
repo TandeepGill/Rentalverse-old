@@ -33,12 +33,12 @@ class UserProfile extends React.Component {
       return currentTenants.length;
     };
 
-    const previousTenantCount = (tenants) => {
-      const previousTenants = tenants.filter((tenant) => {
-        return tenant.isCurrentTenant === false;
-      });
-      return previousTenants.length;
-    };
+    // const previousTenantCount = (tenants) => {
+    //   const previousTenants = tenants.filter((tenant) => {
+    //     return tenant.isCurrentTenant === false;
+    //   });
+    //   return previousTenants.length;
+    // };
 
     //Extracts and formats date from created at property of user
     const dateFormat = (timestamp) => {
@@ -116,7 +116,7 @@ class UserProfile extends React.Component {
                   VACANT
                 </h2>
                 <p className='text-6xl lg:text-9xl text-center'>
-                  {previousTenantCount(tenants)}
+                  {propertyCount(properties) - currentTenantCount(tenants)}
                 </p>
               </div>
             </div>
