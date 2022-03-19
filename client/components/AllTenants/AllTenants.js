@@ -53,7 +53,7 @@ class AllTenants extends React.Component {
     const tenantLayout = (tenant) => (
       <div
         key={tenant.id}
-        className='flex flex-col w-72 lg:w-1/3 border-2 p-2 m-auto lg:m-2 mb-6 border-orange-300 rounded-md items-start justify-center'
+        className='flex flex-col w-96 sm:w-72 lg:w-1/3 border-2 p-2 m-auto lg:m-2 mb-6 border-orange-300 rounded-md items-start justify-center'
       >
         <h3>
           <span className='font-bold'>Name:</span>{' '}
@@ -77,7 +77,7 @@ class AllTenants extends React.Component {
             <span className='font-bold'>End Date:</span> {tenant.endDate}
           </h4>
         </div>
-        <div className='w-full lg: ml-auto lg:w-fit xl:w-5/12 lg:text-right'>
+        <div className='w-full lg:ml-auto lg:w-fit xl:w-5/12 lg:text-right'>
           <Link to={`/properties/${tenant.property.id}`}>
             <div className='w-full mt-3 text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2'>
               Go To Property
