@@ -767,10 +767,6 @@ select {
   margin-left: 0.75rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -885,10 +881,6 @@ select {
 
 .w-36 {
   width: 9rem;
-}
-
-.w-72 {
-  width: 18rem;
 }
 
 .w-6 {
@@ -1459,6 +1451,10 @@ select {
     margin-left: 2rem;
   }
 
+  .lg\:ml-auto {
+    margin-left: auto;
+  }
+
   .lg\:mb-auto {
     margin-bottom: auto;
   }
@@ -1469,10 +1465,6 @@ select {
 
   .lg\:mt-0 {
     margin-top: 0px;
-  }
-
-  .lg\:ml-auto {
-    margin-left: auto;
   }
 
   .lg\:flex {

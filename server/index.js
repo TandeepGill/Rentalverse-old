@@ -5,7 +5,7 @@ const enforce = require('express-sslify');
 const seed = require('../script/seed');
 
 // redirecting HTTP to HTTPS
-app.use(enforce.HTTPS());
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 const init = async () => {
   try {
