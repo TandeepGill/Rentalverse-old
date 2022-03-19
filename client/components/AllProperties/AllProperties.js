@@ -58,7 +58,7 @@ class AllProperties extends React.Component {
     const newPropertyLayout = (property) => (
       <div
         key={property.id}
-        className='flex flex-col w-72 border-2 p-2 m-auto lg:m-2 mb-6 border-orange-300 rounded-md items-center'
+        className='flex flex-col w-96 sm:w-72 border-2 p-2 m-auto lg:m-2 mb-6 border-orange-300 rounded-md items-center'
       >
         <Link to={`/properties/${property.id}`}>
           <div className='m-0.5'>
