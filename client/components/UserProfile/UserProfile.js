@@ -61,9 +61,9 @@ class UserProfile extends React.Component {
         <div className='flex w-full mx-auto mt-12 mb-4 px-4 sm:px-6 lg:px-8'>
           <div className='flex flex-col  mx-auto items-center mb-4 justify-center w-full'>
             <h1 className='text-2xl font-bold underline text-orange-600 mb-4'>
-              USER PROFILE
+              MY PROFILE
             </h1>
-            <div className='flex flex-col flex-wrap bg-orange-100 border-2 border-orange-600 rounded-md w-2/3 lg:w-1/3'>
+            <div className='flex flex-col flex-wrap bg-orange-100 border-2 border-orange-600 rounded-md w-full md:w-2/5 lg:w-1/3'>
               <div className='flex flex-col lg:flex-row items-center justify-center'>
                 <img
                   src={user.imageURL}
@@ -95,7 +95,7 @@ class UserProfile extends React.Component {
             </div>
 
             <div className='flex flex-col lg:flex-row justify-center items-center w-full lg:w-2/3'>
-              <div className='flex flex-col justify-center items-center w-2/3 lg:1/5 h-40 lg:h-60 bg-orange-300 text-white font-semibold rounded-md p-4 lg:mx-4 my-3'>
+              <div className='flex flex-col justify-center items-center w-full md:w-2/3 lg:1/5 h-40 lg:h-60 bg-orange-300 text-white font-semibold rounded-md p-4 lg:mx-4 my-3'>
                 <h2 className='text-2xl lg:text-4xl text-center mb-5'>
                   PROPERTIES
                 </h2>
@@ -103,7 +103,7 @@ class UserProfile extends React.Component {
                   {propertyCount(properties)}
                 </p>
               </div>
-              <div className='flex flex-col justify-center items-center w-2/3 lg:1/5 h-40 lg:h-60 bg-orange-300 text-white font-semibold rounded-md p-4 lg:mx-4 my-3'>
+              <div className='flex flex-col justify-center items-center w-full md:w-2/3 lg:1/5 h-40 lg:h-60 bg-orange-300 text-white font-semibold rounded-md p-4 lg:mx-4 my-3'>
                 <h2 className='text-2xl lg:text-4xl text-center mb-5'>
                   OCCUPIED
                 </h2>
@@ -111,7 +111,7 @@ class UserProfile extends React.Component {
                   {currentTenantCount(tenants)}
                 </p>
               </div>
-              <div className='flex flex-col justify-center items-center w-2/3 lg:1/5 h-40 lg:h-60 bg-orange-300 text-white font-semibold rounded-md p-4 lg:mx-4 my-3'>
+              <div className='flex flex-col justify-center items-center w-full md:w-2/3 lg:1/5 h-40 lg:h-60 bg-orange-300 text-white font-semibold rounded-md p-4 lg:mx-4 my-3'>
                 <h2 className='text-2xl lg:text-4xl text-center mb-5'>
                   VACANT
                 </h2>
