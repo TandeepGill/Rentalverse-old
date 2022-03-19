@@ -53,7 +53,7 @@ const Navbar = (props) => {
           className='text-xl lg:text-base font-medium hover:text-orange-600 py-1 lg:mx-4'
           activeClassName='border-b-2 border-orange-600 text-orange-600'
         >
-          User Profile
+          My Profile
         </NavLink>
       </li>
     </ul>
