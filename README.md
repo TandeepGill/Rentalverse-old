@@ -6,11 +6,11 @@ Rentalverse is a full stack web application designed and developed to help indiv
 
 # Data to Input for Demo Purposes
 
-To make things easier, here's some data below to use on the **Add A New Property Form** in order to demo the web application. Alternatively, please feel free to manually input any data of your choosing. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
+To make things easier, here's some property and tenant data below to use on the **Add A New Property Form** and **Lease Details Form**, respectively, in order to demo the web application. Alternatively, please feel free to manually input any data of your choosing. You can get stock images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
 
 Right click on an image of a property, click **Copy Image Address**, and paste it into the add a new property form's **Image** field.
 
-Property Data:
+**Property Data:**
 
 - Type: Single-Family
 - Address Line 1: 4701 Prospect Road
@@ -20,7 +20,7 @@ Property Data:
 - Sqft: 3600
 - Image: https://media.istockphoto.com/photos/brown-two-story-all-american-home-picture-id1158713117?k=20&m=1158713117&s=612x612&w=0&h=s_aoDM4KNoixI9qBLmJOBPMccoWsC11zxuBGGgFRiKY=
 
-Tenant Data:
+**Tenant Data:**
 
 - First Name: Bill
 - Last Name: Jax
