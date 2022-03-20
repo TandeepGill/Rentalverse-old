@@ -2,13 +2,13 @@
 
 Deployed Site: https://www.getrentalverse.com/
 
-Rentalverse is a full stack web application designed and developed to help individuals and small real estate investment firms manage their rental properties. This is a unique individual project that I created from the ground up. The inspiration for this project came from my knowledge gained in my previous work experiences. I will be continuously working on this project to build out more complex features. A demo account has been set up, just visit the site and click sign in.
+Rentalverse is a full stack web application designed and developed to help individuals and small real estate investment firms manage their rental properties. This is a unique individual project that I created from the ground up. The inspiration for this project came from my knowledge gained in my previous work experiences. I will be continuously working on this project to build out more complex features. A demo account has been set up, just visit the site and click **Sign in** .
 
 # Data to Input for Demo Purposes
 
-To make things easier, here's some data below to input in order to demo the web application. However, please feel free to use your own data if you'd like instead. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
+To make things easier, here's some data below to input on the **Add A New Property Form** in order to demo the web application. Alternatively, please feel free to manually input any data of your choosing. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
 
-Right click on an image, click 'Copy Image Address', and paste into the form's Image field.
+Right click on an image of a property, click **Copy Image Address**, and paste into the form's **Image** field.
 
 Property Data:
 
