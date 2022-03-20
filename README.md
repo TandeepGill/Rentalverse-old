@@ -94,9 +94,9 @@ I need to update the database schema to allow for more features to be added. Fea
 
 ## Mobile Device Images
 
-<table>
+<table style="width: 100%">
   <tr>
-    <td style="textAlign:center;">Log In</td>
+    <td style="text-alight: center;">Log In</td>
     <td>Menu</td>
     <td>All Properties</td>
   </tr>
