@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { fetchAllProperties } from '../../store/allProperties/allProperties';
 import {
   fetchSingleProperty,
   resetSingleProperty,
@@ -82,6 +83,7 @@ class SingleProperty extends React.Component {
   deletePropertyHandler() {
     const propertyId = this.props.property.id;
     this.props.deleteSingleProperty(propertyId);
+    this.props.getAllProperties(this.props.user.id);
 
     this.props.history.push('/properties');
   }
@@ -359,6 +361,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  getAllProperties: (userId) => dispatch(fetchAllProperties(userId)),
   getSingleProperty: (propertyId) => dispatch(fetchSingleProperty(propertyId)),
   getSingleLease: (propertyId) => dispatch(fetchSingleLease(propertyId)),
   resetSingleProperty: () => dispatch(resetSingleProperty()),
