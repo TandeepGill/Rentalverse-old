@@ -96,7 +96,7 @@ I need to update the database schema to allow for more features to be added. Fea
 
 <table>
   <tr>
-    <td>Log In</td>
+    <td style="text-align:center;">Log In</td>
     <td>Menu</td>
     <td>All Properties</td>
   </tr>
