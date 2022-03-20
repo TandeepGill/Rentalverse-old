@@ -24,6 +24,8 @@ Tenant Data:
 
 - First Name: Bill
 - Last Name: Jax
+- Start Date: *Select From Dropdown*
+- End Date: *Select From Dropdown*
 - Price: 4100
 
 # Features
