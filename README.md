@@ -6,7 +6,9 @@ Rentalverse is a full stack web application designed and developed to help indiv
 
 # Data to Input for Demo Purposes
 
-To make things easier, here's some data below to input in order to demo the web application. However, please feel free to use your own data if you'd like instead.
+To make things easier, here's some data below to input in order to demo the web application. However, please feel free to use your own data if you'd like instead. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
+
+Right click on an image, click 'Copy Image Address', and paste into the form's Image field.
 
 Property Data:
 
@@ -16,7 +18,7 @@ Property Data:
 - Bedroom: 5
 - Bathroom: 4
 - Sqft: 3600
-- Image: https://media.istockphoto.com/photos/modern-townhouse-with-terrace-picture-id1177798055?k=20&m=1177798055&s=612x612&w=0&h=a7y33bLFZWAajGdMSI4uN1PF0sV4_vkI-GOTSQiHkrA=
+- Image: https://media.istockphoto.com/photos/brown-two-story-all-american-home-picture-id1158713117?k=20&m=1158713117&s=612x612&w=0&h=s_aoDM4KNoixI9qBLmJOBPMccoWsC11zxuBGGgFRiKY=
 
 Tenant Data:
 
