@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { addNewProperty } from '../../store/addNewProperty/addNewProperty';
+import { fetchAllProperties } from '../../store/allProperties/allProperties';
 
 class AddNewProperty extends React.Component {
   constructor() {
@@ -39,6 +40,8 @@ class AddNewProperty extends React.Component {
     const property = { ...propertyDetails };
 
     this.props.addNewProperty({ ...property }, this.props.user.id);
+    this.props.getAllProperties(this.props.user.id);
+
     this.setState({
       type: '',
       addressLineOne: '',
@@ -48,7 +51,7 @@ class AddNewProperty extends React.Component {
       sqft: '',
       imageURL: '',
     });
-    this.props.history.push('/properties', { state: { ...property } });
+    this.props.history.push('/properties');
   }
 
   render() {
@@ -202,6 +205,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addNewProperty: (property, userId) =>
     dispatch(addNewProperty(property, userId)),
+  getAllProperties: (userId) => dispatch(fetchAllProperties(userId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNewProperty);
