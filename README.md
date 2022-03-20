@@ -6,7 +6,7 @@ Rentalverse is a full stack web application designed and developed to help indiv
 
 # Data to Input for Demo Purposes
 
-To make things easier, here's some data below to input on the **Add A New Property Form** in order to demo the web application. Alternatively, please feel free to manually input any data of your choosing. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
+To make things easier, here's some data below to use on the **Add A New Property Form** in order to demo the web application. Alternatively, please feel free to manually input any data of your choosing. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
 
 Right click on an image of a property, click **Copy Image Address**, and paste it into the add a new property form's **Image** field.
 
