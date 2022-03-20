@@ -78,6 +78,8 @@ I need to update the database schema to allow for more features to be added. Fea
 
 # Sample Images/GIFs
 
+## GIFs
+
 ### Add a New Property
 ![AddNewProperty](https://user-images.githubusercontent.com/77635364/159149315-05fb49fd-d31e-4555-a31e-5ccf101e65b3.gif)
 
@@ -90,15 +92,28 @@ I need to update the database schema to allow for more features to be added. Fea
 ### Filter Properties and Tenants
 ![FilterPropertiesAndTenants](https://user-images.githubusercontent.com/77635364/159149367-a80a5e96-e923-4e54-8a40-ef4609ad611a.gif)
 
-### Mobile Device Images
+## Mobile Device Images
 
-![SignIn](https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg)
-![Menu](https://user-images.githubusercontent.com/77635364/159151535-6ce8c1b7-8403-4cef-97dd-46756f783e83.jpg)
-![AllProperties](https://user-images.githubusercontent.com/77635364/159151537-13e6cd47-4252-47d6-a143-edbbe08f344e.jpg)
-![SingleProperty](https://user-images.githubusercontent.com/77635364/159151538-0331c962-7499-44ba-b29f-1c2b686d4f4c.jpg)
-![SingleLease](https://user-images.githubusercontent.com/77635364/159151540-c2c56d19-609c-4e65-bff4-b63c17406ff7.jpg)
-![LeaseDetailsForm](https://user-images.githubusercontent.com/77635364/159151542-5a2ea78e-bf7a-474e-aeb3-c17cf25da7d2.jpg)
-![AddNewProperty](https://user-images.githubusercontent.com/77635364/159151545-f3c11706-5d99-45d9-8008-e72ac70ba43f.jpg)
-![AllTenants](https://user-images.githubusercontent.com/77635364/159151548-628f2e51-b0a0-4ce2-b887-4c6cc881112f.jpg)
+### Log In
+<img src="https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg" alt="Log In" width="200"/>
 
+### Menu
+<img src="https://user-images.githubusercontent.com/77635364/159151535-6ce8c1b7-8403-4cef-97dd-46756f783e83.jpg" alt="Menu" width="200"/>
 
+### All Properties
+<img src="https://user-images.githubusercontent.com/77635364/159151537-13e6cd47-4252-47d6-a143-edbbe08f344e.jpg" alt="All Properties" width="200"/>
+
+### Single Property
+<img src="https://user-images.githubusercontent.com/77635364/159151538-0331c962-7499-44ba-b29f-1c2b686d4f4c.jpg" alt="Single Property" width="200"/>
+
+### Single Lease
+<img src="https://user-images.githubusercontent.com/77635364/159151540-c2c56d19-609c-4e65-bff4-b63c17406ff7.jpg" alt="Single Lease" width="200"/>
+
+### Lease Details Form
+<img src="https://user-images.githubusercontent.com/77635364/159151542-5a2ea78e-bf7a-474e-aeb3-c17cf25da7d2.jpg" alt="Lease Details Form" width="200"/>
+
+### Add New Property Form
+<img src="https://user-images.githubusercontent.com/77635364/159151545-f3c11706-5d99-45d9-8008-e72ac70ba43f.jpg" alt="Add New Property Form" width="200"/>
+
+### All Tenants
+<img src="https://user-images.githubusercontent.com/77635364/159151548-628f2e51-b0a0-4ce2-b887-4c6cc881112f.jpg" alt="All Tenants" width="200"/>
