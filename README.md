@@ -78,15 +78,15 @@ I need to update the database schema to allow for more features to be added, suc
 
 # Sample Images/GIFs
 
-## Add a New Property
+### Add a New Property
 ![AddNewProperty](https://user-images.githubusercontent.com/77635364/159149315-05fb49fd-d31e-4555-a31e-5ccf101e65b3.gif)
 
-## Add a New Tenant
+### Add a New Tenant
 ![AddNewTenant](https://user-images.githubusercontent.com/77635364/159149329-af17377d-3ec7-4b61-97fb-c848e39a19cf.gif)
 
-## Edit a Lease and Delete a Property
+### Edit a Lease and Delete a Property
 ![EditLeaseAndDeleteProperty](https://user-images.githubusercontent.com/77635364/159149341-911b84f5-6746-48f2-9c2c-bd8b17e68343.gif)
 
-## Filter Properties and Tenants
+### Filter Properties and Tenants
 ![FilterPropertiesAndTenants](https://user-images.githubusercontent.com/77635364/159149367-a80a5e96-e923-4e54-8a40-ef4609ad611a.gif)
 
