@@ -95,25 +95,25 @@ I need to update the database schema to allow for more features to be added. Fea
 ## Mobile Device Images
 
 ### Log In
-<img src="https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg" alt="Log In" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg" alt="Log In" width="300"/>
 
 ### Menu
-<img src="https://user-images.githubusercontent.com/77635364/159151535-6ce8c1b7-8403-4cef-97dd-46756f783e83.jpg" alt="Menu" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151535-6ce8c1b7-8403-4cef-97dd-46756f783e83.jpg" alt="Menu" width="300"/>
 
 ### All Properties
-<img src="https://user-images.githubusercontent.com/77635364/159151537-13e6cd47-4252-47d6-a143-edbbe08f344e.jpg" alt="All Properties" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151537-13e6cd47-4252-47d6-a143-edbbe08f344e.jpg" alt="All Properties" width="300"/>
 
 ### Single Property
-<img src="https://user-images.githubusercontent.com/77635364/159151538-0331c962-7499-44ba-b29f-1c2b686d4f4c.jpg" alt="Single Property" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151538-0331c962-7499-44ba-b29f-1c2b686d4f4c.jpg" alt="Single Property" width="300"/>
 
 ### Single Lease
-<img src="https://user-images.githubusercontent.com/77635364/159151540-c2c56d19-609c-4e65-bff4-b63c17406ff7.jpg" alt="Single Lease" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151540-c2c56d19-609c-4e65-bff4-b63c17406ff7.jpg" alt="Single Lease" width="300"/>
 
 ### Lease Details Form
-<img src="https://user-images.githubusercontent.com/77635364/159151542-5a2ea78e-bf7a-474e-aeb3-c17cf25da7d2.jpg" alt="Lease Details Form" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151542-5a2ea78e-bf7a-474e-aeb3-c17cf25da7d2.jpg" alt="Lease Details Form" width="300"/>
 
 ### Add New Property Form
-<img src="https://user-images.githubusercontent.com/77635364/159151545-f3c11706-5d99-45d9-8008-e72ac70ba43f.jpg" alt="Add New Property Form" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151545-f3c11706-5d99-45d9-8008-e72ac70ba43f.jpg" alt="Add New Property Form" width="300"/>
 
 ### All Tenants
-<img src="https://user-images.githubusercontent.com/77635364/159151548-628f2e51-b0a0-4ce2-b887-4c6cc881112f.jpg" alt="All Tenants" width="200"/>
+<img src="https://user-images.githubusercontent.com/77635364/159151548-628f2e51-b0a0-4ce2-b887-4c6cc881112f.jpg" alt="All Tenants" width="300"/>
