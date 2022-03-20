@@ -94,6 +94,7 @@ I need to update the database schema to allow for more features to be added. Fea
 
 ## Mobile Device Images
 
+<p float="left">
 ### Log In
 <img src="https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg" alt="Log In" width="300"/>
 
@@ -117,3 +118,4 @@ I need to update the database schema to allow for more features to be added. Fea
 
 ### All Tenants
 <img src="https://user-images.githubusercontent.com/77635364/159151548-628f2e51-b0a0-4ce2-b887-4c6cc881112f.jpg" alt="All Tenants" width="300"/>
+</p>
