@@ -1,10 +1,28 @@
 # Rentalverse
 
-Deployed Site: [Click Here](https://www.getrentalverse.com/)
-
-https://www.getrentalverse.com/
+Deployed Site: https://www.getrentalverse.com/
 
 Rentalverse is a full stack web application designed and developed to help individuals and small real estate investment firms manage their rental properties. This is a unique individual project that I created from the ground up. The inspiration for this project came from my knowledge gained in my previous work experiences. I will be continuously working on this project to build out more complex features. A demo account has been set up, just visit the site and click sign in.
+
+# Data to Input for Demo Purposes
+
+To make things easier, here's some data below to input in order to demo the web application. However, please feel free to use your own data if you'd like instead.
+
+Property Data:
+
+- Type: Single-Family
+- Address Line 1: 4701 Prospect Road
+- Address Line 2: Irvine, CA 92614
+- Bedroom: 5
+- Bathroom: 4
+- Sqft: 3600
+- Image: https://media.istockphoto.com/photos/modern-townhouse-with-terrace-picture-id1177798055?k=20&m=1177798055&s=612x612&w=0&h=a7y33bLFZWAajGdMSI4uN1PF0sV4_vkI-GOTSQiHkrA=
+
+Tenant Data:
+
+- First Name: Bill
+- Last Name: Jax
+- Price: 4100
 
 # Features
 
