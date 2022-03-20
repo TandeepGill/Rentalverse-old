@@ -96,9 +96,9 @@ I need to update the database schema to allow for more features to be added. Fea
 
 <table style="width: 100%;">
   <tr>
-    <td style="text-align: center">Log In</td>
-    <td style="text-align: center">Menu</td>
-    <td style="text-align: center">All Properties</td>
+    <td style="text-align: center;">Log In</td>
+    <td style="text-align: center;">Menu</td>
+    <td style="text-align: center;">All Properties</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg" alt="Log In" width="300"/></td>
@@ -106,9 +106,9 @@ I need to update the database schema to allow for more features to be added. Fea
     <td><img src="https://user-images.githubusercontent.com/77635364/159151537-13e6cd47-4252-47d6-a143-edbbe08f344e.jpg" alt="All Properties" width="300"/></td>
   </tr>
   <tr>
-    <td style="text-align: center">Single Property</td>
-    <td style="text-align: center">Single Lease</td>
-    <td style="text-align: center">Lease Form</td>
+    <td style="text-align: center;">Single Property</td>
+    <td style="text-align: center;">Single Lease</td>
+    <td style="text-align: center;">Lease Form</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/77635364/159151538-0331c962-7499-44ba-b29f-1c2b686d4f4c.jpg" alt="Single Property" width="300"/></td>
@@ -116,8 +116,8 @@ I need to update the database schema to allow for more features to be added. Fea
     <td><img src="https://user-images.githubusercontent.com/77635364/159151542-5a2ea78e-bf7a-474e-aeb3-c17cf25da7d2.jpg" alt="Lease Details Form" width="300"/></td>
   </tr>
   <tr>
-    <td style="text-align: center">Add New Property</td>
-    <td style="text-align: center">All Tenants</td>
+    <td style="text-align: center;">Add New Property</td>
+    <td style="text-align: center;">All Tenants</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/77635364/159151545-f3c11706-5d99-45d9-8008-e72ac70ba43f.jpg" alt="Add New Property Form" width="300"/></td>
