@@ -8,7 +8,7 @@ Rentalverse is a full stack web application designed and developed to help indiv
 
 To make things easier, here's some data below to input on the **Add A New Property Form** in order to demo the web application. Alternatively, please feel free to manually input any data of your choosing. You can get images of properties from the following website: https://www.istockphoto.com/search/2/image?family=creative&phrase=home%20exterior
 
-Right click on an image of a property, click **Copy Image Address**, and paste into the form's **Image** field.
+Right click on an image of a property, click **Copy Image Address**, and paste it into the add a new property form's **Image** field.
 
 Property Data:
 
@@ -58,8 +58,8 @@ This web app utilizes the following technologies (not an inclusive list):
 
 # Set-Up
 
-1. Setup the postgreSQL database by running the following in the command line -- `createdb rentalverse`
-2. Clone this repo to your local environment -- `git clone < git repository >`
+1. Setup the postgreSQL database by running the following in the command line `createdb rentalverse`
+2. Clone this repo to your local environment with `git clone < git repository >`
 3. Change directory into the cloned repo with `cd`
 4. run `npm install` into your command line
 5. run `npm run seed` into your command line
@@ -69,16 +69,16 @@ Sync and seed your database by running `npm run seed`. In the project directory 
 
 # What's Next?
 
-I need to update the database schema to allow for more features to be added. Features such as a user's ability to track maintenance requests and monthly rent payments. The front end styling needs to be improved, along with accessibility. I will be working through these different features and tracking upcoming features in the Nice-To-Have section below.
+I need to update the database schema to allow for more features to be added. Features such as a user's ability to track maintenance requests and monthly rent payments of each property. The front end styling needs to be improved, along with accessibility. I will be working through these different features and tracking upcoming features in the Nice-To-Have section below.
 
 # Nice-To-Have Features (not an inclusive list)
 
 - Allow a user to input maintenance requests by property and track progress as maintenance is carried out; i.e. Pending, In Progress, Completed
-- Allow a user to keep track of rent payments and when they were made
+- Allow a user to keep track of rent payments and when they were made for each property. Show total rental income data
 - Add validations and prompts on the front end to visually inform a user when an event occurs
 - Allow a user to to edit their account information; i.e. avatar, email, password etc.
 
-# Sample Images/GIFs
+# Sample GIFs/Images
 
 ## GIFs
 
