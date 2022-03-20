@@ -96,9 +96,9 @@ I need to update the database schema to allow for more features to be added. Fea
 
 <table style="width: 100%;">
   <tr>
-    <td style="text-align: center;">Log In</td>
-    <td style="text-align: center;">Menu</td>
-    <td style="text-align: center;">All Properties</td>
+    <td style="width: 100%; text-align: center;">Log In</td>
+    <td style="width: 100%; text-align: center;">Menu</td>
+    <td style="width: 100%; text-align: center;">All Properties</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/77635364/159151533-7f901ea9-38cd-40b8-8e4f-9b5d99f7cebd.jpg" alt="Log In" width="300"/></td>
