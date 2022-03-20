@@ -111,7 +111,6 @@ async function seed() {
   // Creating Properties
   const properties = await Promise.all([
     Property.create({
-      id: 1,
       address: '419 Trantow Skyway\nDollyport, KY 28406',
       bedroom: 4,
       bathroom: 2,
@@ -122,7 +121,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 2,
       address: '1810 Hiram Mountain\nNew Maechester, CA 31787',
       bedroom: 5,
       bathroom: 4,
@@ -133,7 +131,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 3,
       address: '632 Hortense Roads\nHamillberg, OR 39790',
       bedroom: 2,
       bathroom: 2,
@@ -144,7 +141,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 4,
       address: '1019 Domenica Lake\nNew Freidahaven, WI 14195',
       bedroom: 3,
       bathroom: 2,
@@ -155,7 +151,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 5,
       address: '39546 Tressa Expressway\nKatharina, VT 45825',
       bedroom: 1,
       bathroom: 1,
@@ -166,7 +161,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 6,
       address: '127 Rosenbaum Squares\nYostland, MS 64937',
       bedroom: 5,
       bathroom: 3,
@@ -177,7 +171,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 7,
       address: '654 Gerhold Street\nNorth Odieview, WV 15513',
       bedroom: 2,
       bathroom: 1,
@@ -188,7 +181,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 8,
       address: '602 Dickinson Estate\nWest Nobleshire, OK 42744',
       bedroom: 4,
       bathroom: 2,
@@ -199,7 +191,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 9,
       address: '2963 Vincent Ways\nNew Alverta, LA 25139',
       bedroom: 4,
       bathroom: 3,
@@ -210,7 +201,6 @@ async function seed() {
       userId: 1,
     }),
     Property.create({
-      id: 10,
       address: '5025 Erna Valley\nWehnerhaven, GA 65976',
       bedroom: 3,
       bathroom: 3,
@@ -225,7 +215,6 @@ async function seed() {
   // Creating Leases
   const leases = await Promise.all([
     Lease.create({
-      id: 1,
       firstName: 'Elyse',
       lastName: 'Landry',
       startDate: '2022-02-23',
@@ -236,7 +225,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 2,
       firstName: 'Julianna',
       lastName: 'Irwin',
       startDate: '2022-03-15',
@@ -247,7 +235,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 3,
       firstName: 'Kaitlynn',
       lastName: 'Tanner',
       startDate: '2022-01-04',
@@ -258,7 +245,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 4,
       firstName: 'Kash',
       lastName: 'Wade',
       startDate: '2022-01-12',
@@ -269,7 +255,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 5,
       firstName: 'Skye',
       lastName: 'House',
       startDate: '2022-02-06',
@@ -280,7 +265,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 6,
       firstName: 'Payton',
       lastName: 'Owens',
       startDate: '2022-03-17',
@@ -291,7 +275,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 7,
       firstName: 'Ashton',
       lastName: 'Pierce',
       startDate: '2022-02-21',
@@ -302,7 +285,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 8,
       firstName: 'Jacqueline',
       lastName: 'Griffith',
       startDate: '2022-01-07',
@@ -313,7 +295,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 9,
       firstName: 'Jack',
       lastName: 'Barton',
       startDate: '2022-03-12',
@@ -324,7 +305,6 @@ async function seed() {
       userId: 1,
     }),
     Lease.create({
-      id: 10,
       firstName: 'Thomas',
       lastName: 'Santana',
       startDate: '2022-02-25',
