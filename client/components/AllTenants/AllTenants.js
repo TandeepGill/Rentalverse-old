@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { fetchAllTenants } from '../../store/allTenants/allTenants';
 
+import ReactLoading from 'react-loading';
+
 class AllTenants extends React.Component {
   constructor() {
     super();
     this.state = {
       dropDown: 'all',
+      isLoading: true,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -15,6 +18,10 @@ class AllTenants extends React.Component {
   componentDidMount() {
     try {
       this.props.getAllTenants(this.props.user.id);
+      this.setState({
+        ...this.state,
+        isLoading: false,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -117,6 +124,16 @@ class AllTenants extends React.Component {
           </div>
           <div className='flex flex-wrap justify-center w-full'>
             <div className='w-full flex flex-wrap justify-center lg:mx-40'>
+              {this.state.isLoading && (
+                <div className='flex justify-center items-center min-w-full'>
+                  <ReactLoading
+                    type={'cylon'}
+                    color={'#dd6b20'}
+                    height={'25%'}
+                    width={'25%'}
+                  />
+                </div>
+              )}
               {this.state.dropDown === 'all' &&
                 allTenants.length > 0 &&
                 allTenants.map((tenant) => tenantLayout(tenant))}
@@ -126,6 +143,12 @@ class AllTenants extends React.Component {
               {this.state.dropDown === 'previous' &&
                 previousTenants.length > 0 &&
                 previousTenants.map((tenant) => tenantLayout(tenant))}
+              {allTenants.length === 0 && !this.state.isLoading && (
+                <div className='flex flex-col justify-center items-center min-w-full mt-10'>
+                  <p>YOU HAVE NO TENANTS TO DISPLAY!</p>
+                  <p>VISIT A PROPERTY'S DETAILS PAGE AND ADD A TENANT.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
