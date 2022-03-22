@@ -15,6 +15,8 @@ import {
   endCurrentLease,
 } from '../../store/singleLease/singleLease';
 
+import ReactLoading from 'react-loading';
+
 class SingleProperty extends React.Component {
   constructor() {
     super();
@@ -27,6 +29,7 @@ class SingleProperty extends React.Component {
         price: '',
       },
       isEditLease: false,
+      isLoading: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -41,6 +44,10 @@ class SingleProperty extends React.Component {
     try {
       this.props.getSingleProperty(this.props.match.params.propertyId);
       this.props.getSingleLease(this.props.match.params.propertyId);
+      this.setState({
+        ...this.state,
+        isLoading: false,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -69,6 +76,7 @@ class SingleProperty extends React.Component {
 
     this.props.addNewLease({ ...lease }, { propertyId, userId });
     this.setState({
+      ...this.state,
       leaseDetails: {
         firstName: '',
         lastName: '',
@@ -109,6 +117,7 @@ class SingleProperty extends React.Component {
 
     this.props.editCurrentLease(lease, leaseId);
     this.setState({
+      ...this.state,
       leaseDetails: {
         firstName: '',
         lastName: '',
@@ -125,6 +134,7 @@ class SingleProperty extends React.Component {
     const { firstName, lastName, startDate, endDate, price } = appState;
 
     this.setState({
+      ...this.state,
       leaseDetails: {
         firstName: firstName,
         lastName: lastName,
@@ -254,6 +264,16 @@ class SingleProperty extends React.Component {
             <h1 className='text-2xl font-bold underline mb-4 text-orange-600'>
               PROPERTY DETAILS
             </h1>
+            {this.state.isLoading && (
+              <div className='flex justify-center items-center min-w-full'>
+                <ReactLoading
+                  type={'cylon'}
+                  color={'#dd6b20'}
+                  height={'25%'}
+                  width={'25%'}
+                />
+              </div>
+            )}
             {Object.keys(property).length > 0 && (
               <div className='flex flex-col lg:flex-row items-center w-full'>
                 <img
@@ -300,6 +320,16 @@ class SingleProperty extends React.Component {
             LEASE DETAILS
           </h1>
           <div className='flex flex-col items-center mb-4 justify-center mt-2 w-full'>
+            {this.state.isLoading && (
+              <div className='flex justify-center items-center min-w-full'>
+                <ReactLoading
+                  type={'cylon'}
+                  color={'#dd6b20'}
+                  height={'25%'}
+                  width={'25%'}
+                />
+              </div>
+            )}
             {Object.keys(lease).length === 0 && (
               <div className='flex w-full'>{newLeaseForm(handleSubmit)}</div>
             )}
