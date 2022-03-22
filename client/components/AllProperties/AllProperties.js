@@ -4,11 +4,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { fetchAllProperties } from '../../store/allProperties/allProperties';
 import { fetchAllTenants } from '../../store/allTenants/allTenants';
 
+import ReactLoading from 'react-loading';
+
 class AllProperties extends React.Component {
   constructor() {
     super();
     this.state = {
       dropDown: 'All',
+      isLoading: true,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -17,6 +20,10 @@ class AllProperties extends React.Component {
     try {
       this.props.getAllProperties(this.props.user.id);
       this.props.getAllTenants(this.props.user.id);
+      this.setState({
+        ...this.state,
+        isLoading: false,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -126,6 +133,16 @@ class AllProperties extends React.Component {
           </div>
           <div className='flex flex-wrap justify-center w-full'>
             <div className='w-full flex flex-wrap justify-start lg:mx-40'>
+              {this.state.isLoading && (
+                <div className='flex justify-center items-center min-w-full'>
+                  <ReactLoading
+                    type={'cylon'}
+                    color={'#dd6b20'}
+                    height={'25%'}
+                    width={'25%'}
+                  />
+                </div>
+              )}
               {this.state.dropDown === 'All' &&
                 allProperties.length > 0 &&
                 allProperties.map((property) => newPropertyLayout(property))}
@@ -140,6 +157,22 @@ class AllProperties extends React.Component {
               {this.state.dropDown === 'Condo' &&
                 condos.length > 0 &&
                 condos.map((condo) => newPropertyLayout(condo))}
+              {allProperties.length === 0 && !this.state.isLoading && (
+                <div className='flex flex-col justify-center items-center min-w-full mt-10'>
+                  <p>YOU HAVE NO PROPERTIES TO DISPLAY!</p>
+                  <p>
+                    {
+                      <Link
+                        to='/property/new'
+                        className='text-orange-600 font-bold hover:text-orange-800'
+                      >
+                        CLICK HERE,{' '}
+                      </Link>
+                    }
+                    TO ADD A PROPERTY.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
