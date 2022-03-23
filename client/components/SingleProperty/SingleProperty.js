@@ -274,7 +274,7 @@ class SingleProperty extends React.Component {
                 />
               </div>
             )}
-            {Object.keys(property).length > 0 && (
+            {Object.keys(property).length > 0 && !this.state.isLoading && (
               <div className='flex flex-col lg:flex-row items-center w-full'>
                 <img
                   className='h-60 rounded-md lg:mr-4'
@@ -330,53 +330,57 @@ class SingleProperty extends React.Component {
                 />
               </div>
             )}
-            {Object.keys(lease).length === 0 && (
+
+            {Object.keys(lease).length === 0 && !this.state.isLoading && (
               <div className='flex w-full'>{newLeaseForm(handleSubmit)}</div>
             )}
 
-            {isEditLease && (
+            {isEditLease && !this.state.isLoading && (
               <div className='flex w-full'>
                 {newLeaseForm(handleEditSubmit)}
               </div>
             )}
 
-            {!isEditLease && Object.keys(lease).length > 1 && (
-              <div className='flex flex-col lg:flex-row items-center w-full justify-center'>
-                <div className='flex flex-col lg:flex-row gap-x-4 w-full lg:w-fit'>
-                  <h3 className='my-2 lg:my-0'>
-                    <span className='font-bold'>Tenant Name:</span>{' '}
-                    {`${lease.firstName} ${lease.lastName}`}
-                  </h3>
-                  <h4 className='my-2 lg:my-0'>
-                    <span className='font-bold'>Price:</span>{' '}
-                    {`$${numToStringFormat(lease.price)}`}
-                  </h4>
-                  <h4 className='my-2 lg:my-0'>
-                    <span className='font-bold'>Start Date:</span>{' '}
-                    {lease.startDate}
-                  </h4>
-                  <h4 className='my-2 lg:my-0'>
-                    <span className='font-bold'>End Date:</span> {lease.endDate}
-                  </h4>
+            {!isEditLease &&
+              Object.keys(lease).length > 1 &&
+              !this.state.isLoading && (
+                <div className='flex flex-col lg:flex-row items-center w-full justify-center'>
+                  <div className='flex flex-col lg:flex-row gap-x-4 w-full lg:w-fit'>
+                    <h3 className='my-2 lg:my-0'>
+                      <span className='font-bold'>Tenant Name:</span>{' '}
+                      {`${lease.firstName} ${lease.lastName}`}
+                    </h3>
+                    <h4 className='my-2 lg:my-0'>
+                      <span className='font-bold'>Price:</span>{' '}
+                      {`$${numToStringFormat(lease.price)}`}
+                    </h4>
+                    <h4 className='my-2 lg:my-0'>
+                      <span className='font-bold'>Start Date:</span>{' '}
+                      {lease.startDate}
+                    </h4>
+                    <h4 className='my-2 lg:my-0'>
+                      <span className='font-bold'>End Date:</span>{' '}
+                      {lease.endDate}
+                    </h4>
+                  </div>
+                  <div className='flex flex-col lg:flex-row items-center justify-center my-2 lg:my-0 mx-6 w-full lg:w-80'>
+                    <button
+                      type='button'
+                      onClick={editLeaseHandler}
+                      className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium mx-2 rounded-lg text-sm px-5 py-2 text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
+                    >
+                      Edit Lease
+                    </button>
+                    <button
+                      type='button'
+                      onClick={endLeaseHandler}
+                      className='text-white bg-red-600 hover:bg-red-700 font-medium mx-2 rounded-lg text-sm px-5 py-2 text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
+                    >
+                      End Lease
+                    </button>
+                  </div>
                 </div>
-                <div className='flex flex-col lg:flex-row items-center justify-center my-2 lg:my-0 mx-6 w-full lg:w-80'>
-                  <button
-                    type='button'
-                    onClick={editLeaseHandler}
-                    className='text-white bg-yellow-500 hover:bg-yellow-600 font-medium mx-2 rounded-lg text-sm px-5 py-2 text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
-                  >
-                    Edit Lease
-                  </button>
-                  <button
-                    type='button'
-                    onClick={endLeaseHandler}
-                    className='text-white bg-red-600 hover:bg-red-700 font-medium mx-2 rounded-lg text-sm px-5 py-2 text-center my-3 lg:my-0 w-full lg:w-28 cursor-pointer'
-                  >
-                    End Lease
-                  </button>
-                </div>
-              </div>
-            )}
+              )}
           </div>
         </div>
       </div>
