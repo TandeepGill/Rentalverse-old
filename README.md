@@ -1,7 +1,5 @@
 # Rentalverse
 
-Deployed Site: https://www.getrentalverse.com/
-
 Rentalverse is a full stack web application designed and developed to help individuals and small real estate investment firms manage their rental properties. This is a unique individual project that I created from the ground up. The inspiration for this project came from my knowledge gained in my previous work experiences. I will be continuously working on this project to build out more complex features. A demo account has been set up, just visit the site and click **Sign in** .
 
 # Data to Input for Demo Purposes
